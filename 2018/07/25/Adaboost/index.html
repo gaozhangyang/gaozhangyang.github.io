@@ -7,7 +7,7 @@
 
 <html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="GZY的博客">
 <meta property="og:description" content="摘要&amp;emsp;&amp;emsp;本文介绍了Adaboost方法，并对鸢尾花进行分类。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-25T09:12:37.788Z">
+<meta property="og:updated_time" content="2018-07-25T11:16:39.326Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Adaboost">
 <meta name="twitter:description" content="摘要&amp;emsp;&amp;emsp;本文介绍了Adaboost方法，并对鸢尾花进行分类。">
@@ -144,7 +144,7 @@
      js.src = "//connect.facebook.net/zh_Hans/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -163,7 +163,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -400,11 +400,18 @@ F_k(x)=F_{k-1}(x)+α_kG_k(x)</script></li>
 </ol>
 <p>&emsp;&emsp;其中：<br>&emsp;&emsp;&emsp;&emsp;$G_m(x)$表示第m个分类器<br>&emsp;&emsp;&emsp;&emsp;$α_m$表示第m个分类器的权重<br>&emsp;&emsp;&emsp;&emsp;M为最终迭代次数，也就是弱分类器的总个数</p>
 <p>&emsp;&emsp;设训练数据为($x_1,y_1$),($x_2,y_2$)($x_3,y_3$)……($x_n,y_n$)<br>&emsp;&emsp;并且采用指数损失函数:</p>
-<script type="math/tex; mode=display">Loss=\sum_{i=1}^N{e^{-y_iF_m(x_i)}}</script><p>&emsp;<br>&emsp;&emsp;<strong>问题1</strong>：第m个分类器的权重$α_m$<br>&emsp;&emsp;<strong>方法</strong>：通过极小化Loss获取$α_m$的值<br>&emsp;&emsp;$$\begin {aligned}<br>Loss&amp;=\sum_{i=1}^N{e^{-y_iF_m(x_i)}} \\<br>&amp;=\sum_{i=1}^N{ e^{-y_i(F_{m-1}(x_i)+α_mG_m(x))} } \\<br>&amp;=\sum_{i=1}^N{ K_{m,i} e^{-y_iα_mG_m(x)} } \\<br>&amp;=\sum_{G_m(x_i)=y_i}{ K_{m,i} e^{-α_m} } + \sum_{G_m(x_i) \neq y_i}{ K_{m,i} e^{α_m} } \\<br>&amp;=( \sum_{G_m(x_i)=y_i}{ K_{m,i} } )e^{-α_m} + ( \sum_{G_m(x_i) \neq y_i}{ K_{m,i} })e^{α_m}\\<br>&amp;=(\sum_{i=1}^N{K_{m,i}}) \frac{( \sum_{G_m(x_i)=y_i}{ K_{m,i} } )e^{-α_m} + ( \sum_{G_m(x_i) \neq y_i}{ K_{m,i} })e^{α_m}}{\sum_{i=1}^N{K_{m,i}}}\\<br>&amp;=(\sum_{i=1}^N{K_{m,i}})((1-e_m)e^{-α_m}+e_me^{α_m})<br>\end {aligned}</p>
+<script type="math/tex; mode=display">Loss=\sum_{i=1}^N{e^{-y_iF_m(x_i)}}</script><p>&emsp;<br>&emsp;&emsp;<strong>问题1</strong>：第m个分类器的权重$α_m$<br>&emsp;&emsp;<strong>方法</strong>：通过极小化Loss获取$α_m$的值<br>&emsp;&emsp;</p>
 <script type="math/tex; mode=display">
-
-&emsp;&emsp;其中
-$$ K_{m,i}=e^{-y_iF_{m-1}(x_i)}</script><p>&emsp;&emsp;Loss对$α_m$求倒数，并取倒数等于0，得到：</p>
+\begin{aligned}
+Loss&=\sum_{i=1}^N{e^{-y_iF_m(x_i)}} \\
+&=\sum_{i=1}^N{ e^{-y_i(F_{m-1}(x_i)+α_mG_m(x))} } \\
+&=\sum_{i=1}^N{ K_{m,i} e^{-y_iα_mG_m(x)} } \\
+&=\sum_{G_m(x_i)=y_i}{ K_{m,i} e^{-α_m} } + \sum_{G_m(x_i) \neq y_i}{ K_{m,i} e^{α_m} } \\
+&=( \sum_{G_m(x_i)=y_i}{ K_{m,i} } )e^{-α_m} + ( \sum_{G_m(x_i) \neq y_i}{ K_{m,i} })e^{α_m}\\
+&=(\sum_{i=1}^N{K_{m,i}}) \frac{( \sum_{G_m(x_i)=y_i}{ K_{m,i} } )e^{-α_m} + ( \sum_{G_m(x_i) \neq y_i}{ K_{m,i} })e^{α_m}}{\sum_{i=1}^N{K_{m,i}}}\\
+&=(\sum_{i=1}^N{K_{m,i}})((1-e_m)e^{-α_m}+e_me^{α_m})
+\end{aligned}</script><p>&emsp;&emsp;其中</p>
+<script type="math/tex; mode=display">K_{m,i}=e^{-y_iF_{m-1}(x_i)}</script><p>&emsp;&emsp;Loss对$α_m$求倒数，并取倒数等于0，得到：</p>
 <script type="math/tex; mode=display">\frac{\partial Loss}{\partial α_m} = (\sum_{i=1}^N{K_{m,i}})((e_m-1)e^{-α_m}+e_me^{α_m})=0</script><p>&emsp;&emsp;于是得到第m个分类器的权重:</p>
 <script type="math/tex; mode=display">α_m=\frac{1}{2} ln(\frac{1-e_m}{e_m})</script><p>&emsp;<br>&emsp;&emsp;<strong>问题2</strong>：训练数据的权值怎么更新?<br>&emsp;&emsp;<strong>方法</strong>：暂不知晓，只能感官上领会</p>
 <script type="math/tex; mode=display">ω_{m+1,i}=\frac{ω_{m,i}}{z_m} e^{-α_my_iG_m(x_i)},i=1,2,…</script><script type="math/tex; mode=display">z_m=\sum_{i=1}^{N}{ω_{m,i} e^{-α_my_iG_m(x_i)} }</script><p>&emsp;&emsp;抛开归一因子$z_m$。误分类时，$y_iG_m(x_i)<0$，与最新分类器的权重$α_m$加权后，得到$-α_my_ig_m(x_i)>0$，指数部分一点大于1，使得原来的权重$ω_{m,i}$变大。同理，正确分类后，原有权重会变小。</0$，与最新分类器的权重$α_m$加权后，得到$-α_my_ig_m(x_i)></p>
@@ -964,7 +971,7 @@ AdaBoostClassifier(algorithm=&#39;SAMME.R&#39;, base_estimator=None,
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 

@@ -310,6 +310,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/深度学习DL/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习DL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -360,7 +382,49 @@
       
         
           
-            <p><strong>一、简述</strong><br><strong>二、关键点</strong><br><strong>三、算法原理</strong><br><strong>四、疑点</strong><br><strong>五、例子</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> read_csv</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">from</span> keras.models <span class="keyword">import</span> Sequential</span><br><span class="line"><span class="keyword">from</span> keras.callbacks <span class="keyword">import</span> TensorBoard</span><br><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> Dense</span><br><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> LSTM</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> MinMaxScaler</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_squared_error</span><br><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure></p>
+            <p>###<strong>一、认识</strong></p>
+<p>#####1.1简述</p>
+<div align="center"><br><br><img src="/2018/07/24/LSTM-航班预测/LSTM_Cell.jpg" width="350" hegiht="300"><br><br></div>
+
+<p>&emsp;&emsp;LSTM是改进型的循环神经网络，每一个神经元的输入包括上一个时刻的状态$C{t-1}$、上一个时刻的输出$h_{t-1}$与当前时刻的输入$X_t$。神经元内部包括三个门：<br>&emsp;&emsp;遗忘门$f_t$：生成遗忘向量，和t-1时刻的状态$ C_{t-1} $进行卷积，结果用于产生当前状态$ C_t $。<br>&emsp;&emsp;输入门$i_t$：生成输入向量，和t-1时刻的输出值$ h_{t-1} $、当前时刻的输入$ x_t $作用，结果用于产生当前状态$C_t$。<br>&emsp;&emsp;输出门$o_t$：生成输出向量，和当前时刻的状态$ C_t $作用，结果作为输出值$h_t$影响下一个时刻的状态。</p>
+<p>#####1.2关键点</p>
+<ul>
+<li>类似数电里面的时序逻辑电路，当前时刻的状态由当前的输入已经之前的状态共同决定。</li>
+</ul>
+<p>#####1.3作用及应用</p>
+<ul>
+<li>处理序列化的问题，预测</li>
+</ul>
+<p>&emsp;</p>
+<p>###<strong>二、算法原理</strong></p>
+<ol>
+<li>colah的博客写得最好不过了，我再多的点缀也是枉然<br> 原版：<br> <a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank" rel="noopener">http://colah.github.io/posts/2015-08-Understanding-LSTMs/</a><br> 中文版：<br> <a href="https://www.jianshu.com/p/9dc9f41f0b29" target="_blank" rel="noopener">https://www.jianshu.com/p/9dc9f41f0b29</a></li>
+</ol>
+<p>&emsp;</p>
+<p>###<strong>三、疑点</strong><br>&emsp;&emsp; 暂时没想好</p>
+<p>&emsp;</p>
+<p>###<strong>四、Future</strong></p>
+<ul>
+<li><p>精彩点与启发</p>
+<ol>
+<li>LSTM是循环神经网络(RNN)的改进，针对RNN中，记忆序列过长时梯度消失和梯度爆炸的问题，LSTM通过遗忘门、输入门的机制予以改善，但没有实质上解决问题。</li>
+<li>循环神经网络通过“一维循环”机制，使得一个神经元能够充当无数个神经元，能否增加循环线路，变成多维的循环，使得神经网络的物理结构简化而逻辑结构更加复杂？</li>
+</ol>
+</li>
+<li><p>设想与工作</p>
+<ol>
+<li>给SLTM加上新的循环机制，产生多个循环方向。我喜欢硅原子的结构，能否尝试像硅原子一样组织网络，提供上下、左右两条循环线路？</li>
+</ol>
+</li>
+</ul>
+<p>&emsp;</p>
+<p>###<strong>五、例子</strong></p>
+<ul>
+<li>本实验使用LSTM模型对航班的乘客数量进行预测，已有1949年1月到1960年12月的数据</li>
+<li>本例使用tensorflow作为keras的后台</li>
+<li>完整数据在代码后面</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> read_csv</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">from</span> keras.models <span class="keyword">import</span> Sequential</span><br><span class="line"><span class="keyword">from</span> keras.callbacks <span class="keyword">import</span> TensorBoard</span><br><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> Dense</span><br><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> LSTM</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> MinMaxScaler</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_squared_error</span><br><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># load the dataset</span></span><br><span class="line">dataframe = read_csv(<span class="string">'international-airline-passengers.csv'</span>, usecols=[<span class="number">1</span>], engine=<span class="string">'python'</span>, skipfooter=<span class="number">3</span>)</span><br><span class="line">dataset = dataframe.values</span><br><span class="line"><span class="comment"># 将整型变为float</span></span><br><span class="line">dataset = dataset.astype(<span class="string">'float32'</span>)</span><br><span class="line"></span><br><span class="line">plt.plot(dataset)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 <div align="center"><br><br><img src="/2018/07/24/LSTM-航班预测/航班预测_1_0.png"><br><br></div>
 
@@ -371,7 +435,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 取0.67为训练，余下测试</span></span><br><span class="line">train_size = int(len(dataset) * <span class="number">0.67</span>)</span><br><span class="line">test_size = len(dataset) - train_size</span><br><span class="line">train, test = dataset[<span class="number">0</span>:train_size,:], dataset[train_size:len(dataset),:]</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#生成LSTM的输入输出</span></span><br><span class="line"><span class="comment">#输入为含有look_back个元素的序列</span></span><br><span class="line"><span class="comment">#输出为序列之后紧随的真实值</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_dataset</span><span class="params">(dataset, look_back=<span class="number">1</span>)</span>:</span></span><br><span class="line">    dataX, dataY = [], []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(dataset)-look_back<span class="number">-1</span>):</span><br><span class="line">        a = dataset[i:(i+look_back), <span class="number">0</span>]</span><br><span class="line">        dataX.append(a)</span><br><span class="line">        dataY.append(dataset[i + look_back, <span class="number">0</span>])</span><br><span class="line">    <span class="keyword">return</span> numpy.array(dataX), numpy.array(dataY)</span><br><span class="line"></span><br><span class="line">look_back = <span class="number">1</span></span><br><span class="line">trainX, trainY = create_dataset(train, look_back)</span><br><span class="line">testX, testY = create_dataset(test, look_back)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># reshape input to be [samples, time steps, features]</span></span><br><span class="line">trainX = numpy.reshape(trainX, (trainX.shape[<span class="number">0</span>], <span class="number">1</span>, trainX.shape[<span class="number">1</span>]))</span><br><span class="line">testX = numpy.reshape(testX, (testX.shape[<span class="number">0</span>], <span class="number">1</span>, testX.shape[<span class="number">1</span>]))</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">model=Sequential()</span><br><span class="line">model.add(LSTM(<span class="number">4</span>,input_shape=(<span class="number">1</span>,look_back)))</span><br><span class="line">model.add(Dense(<span class="number">1</span>))</span><br><span class="line">model.compile(loss=<span class="string">'mean_squared_error'</span>,optimizer=<span class="string">'adam'</span>)</span><br><span class="line">model.fit(trainX, trainY, epochs=<span class="number">30</span>,</span><br><span class="line">          batch_size=<span class="number">1</span>, verbose=<span class="number">2</span>,</span><br><span class="line">          callbacks=[TensorBoard(log_dir=<span class="string">'./Graph/log'</span>)]</span><br><span class="line">          )</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">model=Sequential()</span><br><span class="line">model.add(LSTM(<span class="number">4</span>,input_shape=(<span class="number">1</span>,look_back)))</span><br><span class="line">model.add(Dense(<span class="number">1</span>))</span><br><span class="line">model.compile(loss=<span class="string">'mean_squared_error'</span>,optimizer=<span class="string">'adam'</span>)</span><br><span class="line"><span class="comment">#利用TensorBoard可视化</span></span><br><span class="line">model.fit(trainX, trainY, epochs=<span class="number">30</span>,</span><br><span class="line">          batch_size=<span class="number">1</span>, verbose=<span class="number">2</span>,</span><br><span class="line">          callbacks=[TensorBoard(log_dir=<span class="string">'./Graph/log'</span>)]</span><br><span class="line">          )</span><br></pre></td></tr></table></figure>
 <div align="center"><br><br><img src="/2018/07/24/LSTM-航班预测/航班预测_loss.png"><br><br></div>
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#预测</span></span><br><span class="line">trainPredict = model.predict(trainX)</span><br><span class="line">testPredict = model.predict(testX)</span><br></pre></td></tr></table></figure>
@@ -380,7 +444,9 @@
 <pre><code>Train Score: 23.02 RMSE
 Test Score: 47.81 RMSE
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#画出结果：</span></span><br><span class="line"><span class="comment"># 蓝色为原数据，绿色为训练集的预测值，橙色为测试集的预测值</span></span><br><span class="line"><span class="comment"># shift train predictions for plotting</span></span><br><span class="line">trainPredictPlot = numpy.empty_like(dataset)</span><br><span class="line">trainPredictPlot[:, :] = numpy.nan</span><br><span class="line">trainPredictPlot[look_back:len(trainPredict)+look_back, :] = trainPredict</span><br><span class="line"></span><br><span class="line"><span class="comment"># shift test predictions for plotting</span></span><br><span class="line">testPredictPlot = numpy.empty_like(dataset)</span><br><span class="line">testPredictPlot[:, :] = numpy.nan</span><br><span class="line">testPredictPlot[len(trainPredict)+(look_back*<span class="number">2</span>)+<span class="number">1</span>:len(dataset)<span class="number">-1</span>, :] = testPredict</span><br><span class="line"></span><br><span class="line"><span class="comment"># plot baseline and predictions</span></span><br><span class="line">plt.plot(scaler.inverse_transform(dataset))</span><br><span class="line">plt.plot(trainPredictPlot)</span><br><span class="line">plt.plot(testPredictPlot)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<div align="center"><br><br><img src="/2018/07/24/LSTM-航班预测/航班预测_10_0.png"><br><br></div>
+<div align="center"><br><br><img src="/2018/07/24/LSTM-航班预测/航班预测_10_0.png">‘<br><br>结果图<br></div>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br></pre></td><td class="code"><pre><span class="line">完整数据</span><br><span class="line">"Month","International airline passengers: monthly totals in thousands. Jan 49 ? Dec 60"</span><br><span class="line">"1949-01",112</span><br><span class="line">"1949-02",118</span><br><span class="line">"1949-03",132</span><br><span class="line">"1949-04",129</span><br><span class="line">"1949-05",121</span><br><span class="line">"1949-06",135</span><br><span class="line">"1949-07",148</span><br><span class="line">"1949-08",148</span><br><span class="line">"1949-09",136</span><br><span class="line">"1949-10",119</span><br><span class="line">"1949-11",104</span><br><span class="line">"1949-12",118</span><br><span class="line">"1950-01",115</span><br><span class="line">"1950-02",126</span><br><span class="line">"1950-03",141</span><br><span class="line">"1950-04",135</span><br><span class="line">"1950-05",125</span><br><span class="line">"1950-06",149</span><br><span class="line">"1950-07",170</span><br><span class="line">"1950-08",170</span><br><span class="line">"1950-09",158</span><br><span class="line">"1950-10",133</span><br><span class="line">"1950-11",114</span><br><span class="line">"1950-12",140</span><br><span class="line">"1951-01",145</span><br><span class="line">"1951-02",150</span><br><span class="line">"1951-03",178</span><br><span class="line">"1951-04",163</span><br><span class="line">"1951-05",172</span><br><span class="line">"1951-06",178</span><br><span class="line">"1951-07",199</span><br><span class="line">"1951-08",199</span><br><span class="line">"1951-09",184</span><br><span class="line">"1951-10",162</span><br><span class="line">"1951-11",146</span><br><span class="line">"1951-12",166</span><br><span class="line">"1952-01",171</span><br><span class="line">"1952-02",180</span><br><span class="line">"1952-03",193</span><br><span class="line">"1952-04",181</span><br><span class="line">"1952-05",183</span><br><span class="line">"1952-06",218</span><br><span class="line">"1952-07",230</span><br><span class="line">"1952-08",242</span><br><span class="line">"1952-09",209</span><br><span class="line">"1952-10",191</span><br><span class="line">"1952-11",172</span><br><span class="line">"1952-12",194</span><br><span class="line">"1953-01",196</span><br><span class="line">"1953-02",196</span><br><span class="line">"1953-03",236</span><br><span class="line">"1953-04",235</span><br><span class="line">"1953-05",229</span><br><span class="line">"1953-06",243</span><br><span class="line">"1953-07",264</span><br><span class="line">"1953-08",272</span><br><span class="line">"1953-09",237</span><br><span class="line">"1953-10",211</span><br><span class="line">"1953-11",180</span><br><span class="line">"1953-12",201</span><br><span class="line">"1954-01",204</span><br><span class="line">"1954-02",188</span><br><span class="line">"1954-03",235</span><br><span class="line">"1954-04",227</span><br><span class="line">"1954-05",234</span><br><span class="line">"1954-06",264</span><br><span class="line">"1954-07",302</span><br><span class="line">"1954-08",293</span><br><span class="line">"1954-09",259</span><br><span class="line">"1954-10",229</span><br><span class="line">"1954-11",203</span><br><span class="line">"1954-12",229</span><br><span class="line">"1955-01",242</span><br><span class="line">"1955-02",233</span><br><span class="line">"1955-03",267</span><br><span class="line">"1955-04",269</span><br><span class="line">"1955-05",270</span><br><span class="line">"1955-06",315</span><br><span class="line">"1955-07",364</span><br><span class="line">"1955-08",347</span><br><span class="line">"1955-09",312</span><br><span class="line">"1955-10",274</span><br><span class="line">"1955-11",237</span><br><span class="line">"1955-12",278</span><br><span class="line">"1956-01",284</span><br><span class="line">"1956-02",277</span><br><span class="line">"1956-03",317</span><br><span class="line">"1956-04",313</span><br><span class="line">"1956-05",318</span><br><span class="line">"1956-06",374</span><br><span class="line">"1956-07",413</span><br><span class="line">"1956-08",405</span><br><span class="line">"1956-09",355</span><br><span class="line">"1956-10",306</span><br><span class="line">"1956-11",271</span><br><span class="line">"1956-12",306</span><br><span class="line">"1957-01",315</span><br><span class="line">"1957-02",301</span><br><span class="line">"1957-03",356</span><br><span class="line">"1957-04",348</span><br><span class="line">"1957-05",355</span><br><span class="line">"1957-06",422</span><br><span class="line">"1957-07",465</span><br><span class="line">"1957-08",467</span><br><span class="line">"1957-09",404</span><br><span class="line">"1957-10",347</span><br><span class="line">"1957-11",305</span><br><span class="line">"1957-12",336</span><br><span class="line">"1958-01",340</span><br><span class="line">"1958-02",318</span><br><span class="line">"1958-03",362</span><br><span class="line">"1958-04",348</span><br><span class="line">"1958-05",363</span><br><span class="line">"1958-06",435</span><br><span class="line">"1958-07",491</span><br><span class="line">"1958-08",505</span><br><span class="line">"1958-09",404</span><br><span class="line">"1958-10",359</span><br><span class="line">"1958-11",310</span><br><span class="line">"1958-12",337</span><br><span class="line">"1959-01",360</span><br><span class="line">"1959-02",342</span><br><span class="line">"1959-03",406</span><br><span class="line">"1959-04",396</span><br><span class="line">"1959-05",420</span><br><span class="line">"1959-06",472</span><br><span class="line">"1959-07",548</span><br><span class="line">"1959-08",559</span><br><span class="line">"1959-09",463</span><br><span class="line">"1959-10",407</span><br><span class="line">"1959-11",362</span><br><span class="line">"1959-12",405</span><br><span class="line">"1960-01",417</span><br><span class="line">"1960-02",391</span><br><span class="line">"1960-03",419</span><br><span class="line">"1960-04",461</span><br><span class="line">"1960-05",472</span><br><span class="line">"1960-06",535</span><br><span class="line">"1960-07",622</span><br><span class="line">"1960-08",606</span><br><span class="line">"1960-09",508</span><br><span class="line">"1960-10",461</span><br><span class="line">"1960-11",390</span><br><span class="line">"1960-12",432</span><br></pre></td></tr></table></figure>
 
           
         
@@ -543,32 +609,39 @@ Test Score: 47.81 RMSE
       
         
           
-            <p><strong>一、简述</strong></p>
-<ol>
-<li><p>SVM是一种分类算法，输入样本的各项指标和标签，经过学习之后根据未知样本的标签指标预测其标签。</p>
-</li>
-<li><p>对于线性分类问题：通过对样本及其标签的学习，得到分类超平面，以此对未知样本进行分类。</p>
-</li>
-<li><p>对于非线性分类问题：使用映射函数将原样本映射到另一个空间，使得映射之后线性可分。</p>
-</li>
-</ol>
-<p><strong>二、关键点</strong></p>
-<ol>
-<li>使用超平面对样本进行分类。</li>
-<li>使用变换函数将样本从低维映射到高维，实现非线性样本的分类。</li>
-<li>用拉格朗日乘子法，解二次优化问题，求得最优参数。<br>无论是在低维空间还是高维空间中解决分类问题，都需要计算向量內积，核函数的作用就是：利用低维空间的內积计算高维空间的內积。我的理解就是：将低维空间的內积经函数映射，变成高维空间的內积。</li>
-<li>在SVM模型中，最终需要的只是向量內积，可以不需要映射函数，但映射之后的內积需要有。核函数可以直接计算高维空间的內积而不用管映射函数，并且在传统方法中，使用映射函数映射后再计算內积的计算代价高，因此核函数能够简化计算。</li>
-</ol>
-<p><strong>三、算法原理</strong></p>
+            <p>###<strong>一、认识</strong></p>
+<p>#####1.1简述</p>
+<pre><code>1. SVM是一种分类算法，输入样本的各项指标和标签，经过学习之后根据未知样本的标签指标预测其标签。
+
+2. 对于线性分类问题：通过对样本及其标签的学习，得到分类超平面，以此对未知样本进行分类。
+
+3. 对于非线性分类问题：使用映射函数将原样本映射到另一个空间，使得映射之后线性可分。
+</code></pre><p>#####1.2关键点</p>
+<pre><code>1. 使用超平面对样本进行分类。
+2. 使用变换函数将样本从低维映射到高维，实现非线性样本的分类。
+3. 用拉格朗日乘子法，解二次优化问题，求得最优参数。
+无论是在低维空间还是高维空间中解决分类问题，都需要计算向量內积，核函数的作用就是：利用低维空间的內积计算高维空间的內积。我的理解就是：将低维空间的內积经函数映射，变成高维空间的內积。
+4. 在SVM模型中，最终需要的只是向量內积，可以不需要映射函数，但映射之后的內积需要有。核函数可以直接计算高维空间的內积而不用管映射函数，并且在传统方法中，使用映射函数映射后再计算內积的计算代价高，因此核函数能够简化计算。
+</code></pre><p>#####1.3作用及应用<br>    暂无</p>
+<p>&emsp;</p>
+<p>###<strong>二、算法原理</strong></p>
 <ol>
 <li>李航的统计学习讲得很好</li>
 <li><a href="https://blog.csdn.net/shuimanting520/article/details/45459803" target="_blank" rel="noopener">https://blog.csdn.net/shuimanting520/article/details/45459803</a></li>
 </ol>
-<p><strong>四、疑点</strong></p>
+<p>&emsp;</p>
+<p>###<strong>三、疑点</strong></p>
 <ol>
 <li>二次优化的对偶问题，我不熟悉</li>
 </ol>
-<p><strong>五、例子</strong></p>
+<p>&emsp;</p>
+<p>###<strong>四、Future</strong></p>
+<ul>
+<li><strong>精彩点与启发</strong><br>  暂无</li>
+<li><strong>设想与工作</strong><br>  暂无</li>
+</ul>
+<p>&emsp;</p>
+<p>###<strong>五、例子</strong></p>
 <ul>
 <li>本实验实验scikit-learn库实现对鸢尾花进行分类</li>
 <li>完整数据放在代码之后</li>
@@ -682,7 +755,7 @@ Test Score: 47.81 RMSE
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>

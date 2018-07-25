@@ -92,7 +92,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/07/24/LSTM-航班预测/航班预测_2_0.png">
 <meta property="og:image" content="http://yoursite.com/2018/07/24/LSTM-航班预测/航班预测_loss.png">
 <meta property="og:image" content="http://yoursite.com/2018/07/24/LSTM-航班预测/航班预测_10_0.png">
-<meta property="og:updated_time" content="2018-07-25T03:32:17.839Z">
+<meta property="og:updated_time" content="2018-07-25T03:43:49.973Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LSTM_航班预测">
 <meta name="twitter:description" content="一、认识1.1简述      &amp;emsp;&amp;emsp;LSTM是改进型的循环神经网络，每一个神经元的输入包括上一个时刻的状态$C{t-1}$、上一个时刻的输出$h_{t-1}$与当前时刻的输入$X_t$。神经元内部包括三个门：&amp;emsp;&amp;emsp;遗忘门$f_t$：生成遗忘向量，和t-1时刻的状态$ C_{t-1} $进行卷积，结果用于产生当前状态$ C_t $。&amp;emsp;&amp;emsp;输入门$">
@@ -407,19 +407,19 @@
 <p>&emsp;</p>
 <h3 id="三、疑点"><a href="#三、疑点" class="headerlink" title="三、疑点"></a><strong>三、疑点</strong></h3><p>&emsp;&emsp; 暂时没想好</p>
 <p>&emsp;</p>
-<h3 id="四、Future"><a href="#四、Future" class="headerlink" title="四、Future"></a><strong>四、Future</strong></h3><ul>
+<h3 id="四、Future"><a href="#四、Future" class="headerlink" title="四、Future"></a><strong>四、Future</strong></h3><ol>
 <li><p>精彩点与启发</p>
-<ol>
+<ul>
 <li>LSTM是循环神经网络(RNN)的改进，针对RNN中，记忆序列过长时梯度消失和梯度爆炸的问题，LSTM通过遗忘门、输入门的机制予以改善，但没有实质上解决问题。</li>
 <li>循环神经网络通过“一维循环”机制，使得一个神经元能够充当无数个神经元，能否增加循环线路，变成多维的循环，使得神经网络的物理结构简化而逻辑结构更加复杂？</li>
-</ol>
+</ul>
 </li>
 <li><p>设想与工作</p>
-<ol>
+<ul>
 <li>给SLTM加上新的循环机制，产生多个循环方向。我喜欢硅原子的结构，能否尝试像硅原子一样组织网络，提供上下、左右两条循环线路？</li>
-</ol>
-</li>
 </ul>
+</li>
+</ol>
 <p>&emsp;</p>
 <h3 id="五、例子"><a href="#五、例子" class="headerlink" title="五、例子"></a><strong>五、例子</strong></h3><ul>
 <li>本实验使用LSTM模型对航班的乘客数量进行预测，已有1949年1月到1960年12月的数据</li>

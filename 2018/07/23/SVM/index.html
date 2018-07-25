@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="一、认识1.1简述1. SVM是一种分类算法，输入样本的各项指标和标签，经过学习之后根据未知样本的标签指标预测其标签。  2. 对于线性分类问题：通过对样本及其标签的学习，得到分类超平面，以此对未知样本进行分类。  3. 对于非线性分类问题：使用映射函数将原样本映射到另一个空间，使得映射之后线性可分。 1.2关键点1. 使用超平面对样本进行分类。 2. 使用变换函数将样本从低维映射到高维，实现非线">
+<meta name="description" content="摘要&amp;emsp;&amp;emsp;本文介绍了SVM,并使用SVM对鸢尾花进行分类">
 <meta name="keywords" content="AI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SVM">
 <meta property="og:url" content="http://yoursite.com/2018/07/23/SVM/index.html">
 <meta property="og:site_name" content="GZY的博客">
-<meta property="og:description" content="一、认识1.1简述1. SVM是一种分类算法，输入样本的各项指标和标签，经过学习之后根据未知样本的标签指标预测其标签。  2. 对于线性分类问题：通过对样本及其标签的学习，得到分类超平面，以此对未知样本进行分类。  3. 对于非线性分类问题：使用映射函数将原样本映射到另一个空间，使得映射之后线性可分。 1.2关键点1. 使用超平面对样本进行分类。 2. 使用变换函数将样本从低维映射到高维，实现非线">
+<meta property="og:description" content="摘要&amp;emsp;&amp;emsp;本文介绍了SVM,并使用SVM对鸢尾花进行分类">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-25T03:44:02.386Z">
+<meta property="og:updated_time" content="2018-07-25T08:52:36.442Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SVM">
-<meta name="twitter:description" content="一、认识1.1简述1. SVM是一种分类算法，输入样本的各项指标和标签，经过学习之后根据未知样本的标签指标预测其标签。  2. 对于线性分类问题：通过对样本及其标签的学习，得到分类超平面，以此对未知样本进行分类。  3. 对于非线性分类问题：使用映射函数将原样本映射到另一个空间，使得映射之后线性可分。 1.2关键点1. 使用超平面对样本进行分类。 2. 使用变换函数将样本从低维映射到高维，实现非线">
+<meta name="twitter:description" content="摘要&amp;emsp;&amp;emsp;本文介绍了SVM,并使用SVM对鸢尾花进行分类">
 
 
 
@@ -381,7 +381,8 @@
       
 
       
-        <h3 id="一、认识"><a href="#一、认识" class="headerlink" title="一、认识"></a><strong>一、认识</strong></h3><h5 id="1-1简述"><a href="#1-1简述" class="headerlink" title="1.1简述"></a>1.1简述</h5><pre><code>1. SVM是一种分类算法，输入样本的各项指标和标签，经过学习之后根据未知样本的标签指标预测其标签。
+        <p></p><p style="font-size:25px;" align="center"><b>摘要</b></p><br>&emsp;&emsp;本文介绍了SVM,并使用SVM对鸢尾花进行分类<br><a id="more"></a><br>&emsp;<p></p>
+<h3 id="一、认识"><a href="#一、认识" class="headerlink" title="一、认识"></a><strong>一、认识</strong></h3><h5 id="1-1简述"><a href="#1-1简述" class="headerlink" title="1.1简述"></a>1.1简述</h5><pre><code>1. SVM是一种分类算法，输入样本的各项指标和标签，经过学习之后根据未知样本的标签指标预测其标签。
 
 2. 对于线性分类问题：通过对样本及其标签的学习，得到分类超平面，以此对未知样本进行分类。
 
@@ -415,7 +416,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#转化函数，将原始字符串数据映射为浮点数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">iris_type</span><span class="params">(s)</span>:</span></span><br><span class="line">    it = &#123;<span class="string">b'Iris-setosa'</span>: <span class="number">0</span>, <span class="string">b'Iris-versicolor'</span>: <span class="number">1</span>, <span class="string">b'Iris-virginica'</span>: <span class="number">2</span>&#125;</span><br><span class="line">    <span class="keyword">return</span> it[s]</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fname=<span class="string">u'C:\D_Work\WorkFiles\ML\SVM\iris.txt'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#加载数据</span></span><br><span class="line">data=np.loadtxt(fname,dtype=float,delimiter=<span class="string">','</span>,converters=&#123;<span class="number">4</span>:iris_type&#125;)</span><br><span class="line"><span class="comment"># print('data:',data)</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># split(数据，分割位置，轴=1（水平分割） or 0（垂直分割）)</span></span><br><span class="line">x, y = np.split(data, (<span class="number">4</span>,), axis=<span class="number">1</span>)</span><br><span class="line"><span class="comment"># print('x:',x)</span></span><br><span class="line"><span class="comment"># print('y:',y)</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#是为方便后期画图更直观，故只取了前两列特征值向量训练。</span></span><br><span class="line">x=x[:,:<span class="number">4</span>]</span><br><span class="line"><span class="comment">#随机取0.6的数据作为训练样本</span></span><br><span class="line">x_train, x_test, y_train, y_test = train_test_split(x, y, random_state=<span class="number">1</span>, test_size=<span class="number">0.4</span>,train_size=<span class="number">0.6</span>)</span><br><span class="line"><span class="comment"># print('x_train:',x_train)</span></span><br><span class="line"><span class="comment"># print('y_train:',y_train)</span></span><br><span class="line"><span class="comment"># print('x_test:',x_test)</span></span><br><span class="line"><span class="comment"># print('y_test:',y_test)</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#四个特征</span></span><br><span class="line">x=x[:,:<span class="number">4</span>]</span><br><span class="line"><span class="comment">#随机取0.6的数据作为训练样本</span></span><br><span class="line">x_train, x_test, y_train, y_test = train_test_split(x, y, random_state=<span class="number">1</span>, test_size=<span class="number">0.4</span>,train_size=<span class="number">0.6</span>)</span><br><span class="line"><span class="comment"># print('x_train:',x_train)</span></span><br><span class="line"><span class="comment"># print('y_train:',y_train)</span></span><br><span class="line"><span class="comment"># print('x_test:',x_test)</span></span><br><span class="line"><span class="comment"># print('y_test:',y_test)</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">kernel='linear':线性核，C越大分类效果越好，但有可能会过拟合（defaul C=1）。</span></span><br><span class="line"><span class="string">kernel='rbf'（default）:高斯核，gamma值越小，分类界面越连续；gamma值越大，分类界面越“散”，分类效果越好，但有可能会过拟合。</span></span><br><span class="line"><span class="string">decision_function_shape='ovr':one v rest，即一个类别与其他类别进行划分</span></span><br><span class="line"><span class="string">decision_function_shape='ovo':one v one，即将类别两两之间进行划分，用二分类的方法模拟多分类的结果。</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">clf = svm.SVC(C=<span class="number">0.8</span>, kernel=<span class="string">'rbf'</span>, gamma=<span class="number">20</span>, decision_function_shape=<span class="string">'ovr'</span>)</span><br><span class="line"><span class="comment">#numpy.ravel()将原始的多维数组变为一维</span></span><br><span class="line">clf.fit(x_train, y_train.ravel())</span><br></pre></td></tr></table></figure>
 <pre><code>SVC(C=0.8, cache_size=200, class_weight=None, coef0=0.0,
   decision_function_shape=&#39;ovr&#39;, degree=3, gamma=20, kernel=&#39;rbf&#39;,
@@ -540,7 +541,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

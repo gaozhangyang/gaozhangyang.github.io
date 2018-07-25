@@ -79,23 +79,23 @@
 
 
 
-<meta name="description" content="一、认识1.1简述      &amp;emsp;&amp;emsp;LSTM是改进型的循环神经网络，每一个神经元的输入包括上一个时刻的状态$C{t-1}$、上一个时刻的输出$h_{t-1}$与当前时刻的输入$X_t$。神经元内部包括三个门：&amp;emsp;&amp;emsp;遗忘门$f_t$：生成遗忘向量，和t-1时刻的状态$ C_{t-1} $进行卷积，结果用于产生当前状态$ C_t $。&amp;emsp;&amp;emsp;输入门$">
+<meta name="description" content="摘要&amp;emsp;&amp;emsp;本文介绍了LSTM,并使用LSTM对航班人数进行预测">
 <meta name="keywords" content="AI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LSTM_航班预测">
 <meta property="og:url" content="http://yoursite.com/2018/07/24/LSTM-航班预测/index.html">
 <meta property="og:site_name" content="GZY的博客">
-<meta property="og:description" content="一、认识1.1简述      &amp;emsp;&amp;emsp;LSTM是改进型的循环神经网络，每一个神经元的输入包括上一个时刻的状态$C{t-1}$、上一个时刻的输出$h_{t-1}$与当前时刻的输入$X_t$。神经元内部包括三个门：&amp;emsp;&amp;emsp;遗忘门$f_t$：生成遗忘向量，和t-1时刻的状态$ C_{t-1} $进行卷积，结果用于产生当前状态$ C_t $。&amp;emsp;&amp;emsp;输入门$">
+<meta property="og:description" content="摘要&amp;emsp;&amp;emsp;本文介绍了LSTM,并使用LSTM对航班人数进行预测">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/07/24/LSTM-航班预测/LSTM_Cell.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/07/24/LSTM-航班预测/航班预测_1_0.png">
 <meta property="og:image" content="http://yoursite.com/2018/07/24/LSTM-航班预测/航班预测_2_0.png">
 <meta property="og:image" content="http://yoursite.com/2018/07/24/LSTM-航班预测/航班预测_loss.png">
 <meta property="og:image" content="http://yoursite.com/2018/07/24/LSTM-航班预测/航班预测_10_0.png">
-<meta property="og:updated_time" content="2018-07-25T03:43:49.973Z">
+<meta property="og:updated_time" content="2018-07-25T06:22:57.258Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LSTM_航班预测">
-<meta name="twitter:description" content="一、认识1.1简述      &amp;emsp;&amp;emsp;LSTM是改进型的循环神经网络，每一个神经元的输入包括上一个时刻的状态$C{t-1}$、上一个时刻的输出$h_{t-1}$与当前时刻的输入$X_t$。神经元内部包括三个门：&amp;emsp;&amp;emsp;遗忘门$f_t$：生成遗忘向量，和t-1时刻的状态$ C_{t-1} $进行卷积，结果用于产生当前状态$ C_t $。&amp;emsp;&amp;emsp;输入门$">
+<meta name="twitter:description" content="摘要&amp;emsp;&amp;emsp;本文介绍了LSTM,并使用LSTM对航班人数进行预测">
 <meta name="twitter:image" content="http://yoursite.com/2018/07/24/LSTM-航班预测/LSTM_Cell.jpg">
 
 
@@ -387,13 +387,14 @@
       
 
       
-        <h3 id="一、认识"><a href="#一、认识" class="headerlink" title="一、认识"></a><strong>一、认识</strong></h3><h5 id="1-1简述"><a href="#1-1简述" class="headerlink" title="1.1简述"></a>1.1简述</h5><div align="center">
+        <p></p><p style="font-size:20px;" align="center"><b>摘要</b></p><br>&emsp;&emsp;本文介绍了LSTM,并使用LSTM对航班人数进行预测<br><a id="more"></a><br>&emsp;<p></p>
+<h3 id="一、认识"><a href="#一、认识" class="headerlink" title="一、认识"></a><strong>一、认识</strong></h3><h5 id="1-1简述"><a href="#1-1简述" class="headerlink" title="1.1简述"></a>1.1简述</h5><div align="center">
 
 <img src="/2018/07/24/LSTM-航班预测/LSTM_Cell.jpg" width="350" hegiht="300">
 
 </div>
 
-<p>&emsp;&emsp;LSTM是改进型的循环神经网络，每一个神经元的输入包括上一个时刻的状态$C{t-1}$、上一个时刻的输出$h_{t-1}$与当前时刻的输入$X_t$。神经元内部包括三个门：<br>&emsp;&emsp;遗忘门$f_t$：生成遗忘向量，和t-1时刻的状态$ C_{t-1} $进行卷积，结果用于产生当前状态$ C_t $。<br>&emsp;&emsp;输入门$i_t$：生成输入向量，和t-1时刻的输出值$ h_{t-1} $、当前时刻的输入$ x_t $作用，结果用于产生当前状态$C_t$。<br>&emsp;&emsp;输出门$o_t$：生成输出向量，和当前时刻的状态$ C_t $作用，结果作为输出值$h_t$影响下一个时刻的状态。</p>
+<p>&emsp;&emsp;LSTM是改进型的循环神经网络，每一个神经元的输入包括上一个时刻的状态$C_{t-1}$、上一个时刻的输出$h_{t-1}$与当前时刻的输入$X_t$。神经元内部包括三个门：<br>&emsp;&emsp;遗忘门$f_t$：生成遗忘向量，和t-1时刻的状态$ C_{t-1} $进行卷积，结果用于产生当前状态$ C_t $。<br>&emsp;&emsp;输入门$i_t$：生成输入向量，和t-1时刻的输出值$ h_{t-1} $、当前时刻的输入$ x_t $作用，结果用于产生当前状态$C_t$。<br>&emsp;&emsp;输出门$o_t$：生成输出向量，和当前时刻的状态$ C_t $作用，结果作为输出值$h_t$影响下一个时刻的状态。</p>
 <h5 id="1-2关键点"><a href="#1-2关键点" class="headerlink" title="1.2关键点"></a>1.2关键点</h5><ul>
 <li>类似数电里面的时序逻辑电路，当前时刻的状态由当前的输入已经之前的状态共同决定。</li>
 </ul>
@@ -500,6 +501,10 @@ Test Score: 47.81 RMSE
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/07/25/Adaboost/" rel="prev" title="Adaboost">
+                Adaboost <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -582,7 +587,7 @@ Test Score: 47.81 RMSE
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

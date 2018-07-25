@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="###一、认识 #####1.1简述 1. SVM是一种分类算法，输入样本的各项指标和标签，经过学习之后根据未知样本的标签指标预测其标签。  2. 对于线性分类问题：通过对样本及其标签的学习，得到分类超平面，以此对未知样本进行分类。  3. 对于非线性分类问题：使用映射函数将原样本映射到另一个空间，使得映射之后线性可分。 #####1.2关键点 1. 使用超平面对样本进行分类。 2. 使用变换函数">
+<meta name="description" content="一、认识1.1简述1. SVM是一种分类算法，输入样本的各项指标和标签，经过学习之后根据未知样本的标签指标预测其标签。  2. 对于线性分类问题：通过对样本及其标签的学习，得到分类超平面，以此对未知样本进行分类。  3. 对于非线性分类问题：使用映射函数将原样本映射到另一个空间，使得映射之后线性可分。 1.2关键点1. 使用超平面对样本进行分类。 2. 使用变换函数将样本从低维映射到高维，实现非线">
 <meta name="keywords" content="AI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SVM">
 <meta property="og:url" content="http://yoursite.com/2018/07/23/SVM/index.html">
 <meta property="og:site_name" content="GZY的博客">
-<meta property="og:description" content="###一、认识 #####1.1简述 1. SVM是一种分类算法，输入样本的各项指标和标签，经过学习之后根据未知样本的标签指标预测其标签。  2. 对于线性分类问题：通过对样本及其标签的学习，得到分类超平面，以此对未知样本进行分类。  3. 对于非线性分类问题：使用映射函数将原样本映射到另一个空间，使得映射之后线性可分。 #####1.2关键点 1. 使用超平面对样本进行分类。 2. 使用变换函数">
+<meta property="og:description" content="一、认识1.1简述1. SVM是一种分类算法，输入样本的各项指标和标签，经过学习之后根据未知样本的标签指标预测其标签。  2. 对于线性分类问题：通过对样本及其标签的学习，得到分类超平面，以此对未知样本进行分类。  3. 对于非线性分类问题：使用映射函数将原样本映射到另一个空间，使得映射之后线性可分。 1.2关键点1. 使用超平面对样本进行分类。 2. 使用变换函数将样本从低维映射到高维，实现非线">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-25T00:37:47.384Z">
+<meta property="og:updated_time" content="2018-07-25T03:14:10.770Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SVM">
-<meta name="twitter:description" content="###一、认识 #####1.1简述 1. SVM是一种分类算法，输入样本的各项指标和标签，经过学习之后根据未知样本的标签指标预测其标签。  2. 对于线性分类问题：通过对样本及其标签的学习，得到分类超平面，以此对未知样本进行分类。  3. 对于非线性分类问题：使用映射函数将原样本映射到另一个空间，使得映射之后线性可分。 #####1.2关键点 1. 使用超平面对样本进行分类。 2. 使用变换函数">
+<meta name="twitter:description" content="一、认识1.1简述1. SVM是一种分类算法，输入样本的各项指标和标签，经过学习之后根据未知样本的标签指标预测其标签。  2. 对于线性分类问题：通过对样本及其标签的学习，得到分类超平面，以此对未知样本进行分类。  3. 对于非线性分类问题：使用映射函数将原样本映射到另一个空间，使得映射之后线性可分。 1.2关键点1. 使用超平面对样本进行分类。 2. 使用变换函数将样本从低维映射到高维，实现非线">
 
 
 
@@ -381,40 +381,33 @@
       
 
       
-        <p>###<strong>一、认识</strong></p>
-<p>#####1.1简述</p>
-<pre><code>1. SVM是一种分类算法，输入样本的各项指标和标签，经过学习之后根据未知样本的标签指标预测其标签。
+        <h3 id="一、认识"><a href="#一、认识" class="headerlink" title="一、认识"></a><strong>一、认识</strong></h3><h5 id="1-1简述"><a href="#1-1简述" class="headerlink" title="1.1简述"></a>1.1简述</h5><pre><code>1. SVM是一种分类算法，输入样本的各项指标和标签，经过学习之后根据未知样本的标签指标预测其标签。
 
 2. 对于线性分类问题：通过对样本及其标签的学习，得到分类超平面，以此对未知样本进行分类。
 
 3. 对于非线性分类问题：使用映射函数将原样本映射到另一个空间，使得映射之后线性可分。
-</code></pre><p>#####1.2关键点</p>
-<pre><code>1. 使用超平面对样本进行分类。
+</code></pre><h5 id="1-2关键点"><a href="#1-2关键点" class="headerlink" title="1.2关键点"></a>1.2关键点</h5><pre><code>1. 使用超平面对样本进行分类。
 2. 使用变换函数将样本从低维映射到高维，实现非线性样本的分类。
 3. 用拉格朗日乘子法，解二次优化问题，求得最优参数。
 无论是在低维空间还是高维空间中解决分类问题，都需要计算向量內积，核函数的作用就是：利用低维空间的內积计算高维空间的內积。我的理解就是：将低维空间的內积经函数映射，变成高维空间的內积。
 4. 在SVM模型中，最终需要的只是向量內积，可以不需要映射函数，但映射之后的內积需要有。核函数可以直接计算高维空间的內积而不用管映射函数，并且在传统方法中，使用映射函数映射后再计算內积的计算代价高，因此核函数能够简化计算。
-</code></pre><p>#####1.3作用及应用<br>    暂无</p>
-<p>&emsp;</p>
-<p>###<strong>二、算法原理</strong></p>
-<ol>
+</code></pre><h5 id="1-3作用及应用"><a href="#1-3作用及应用" class="headerlink" title="1.3作用及应用"></a>1.3作用及应用</h5><pre><code>暂无
+</code></pre><p>&emsp;</p>
+<h3 id="二、算法原理"><a href="#二、算法原理" class="headerlink" title="二、算法原理"></a><strong>二、算法原理</strong></h3><ol>
 <li>李航的统计学习讲得很好</li>
 <li><a href="https://blog.csdn.net/shuimanting520/article/details/45459803" target="_blank" rel="noopener">https://blog.csdn.net/shuimanting520/article/details/45459803</a></li>
 </ol>
 <p>&emsp;</p>
-<p>###<strong>三、疑点</strong></p>
-<ol>
+<h3 id="三、疑点"><a href="#三、疑点" class="headerlink" title="三、疑点"></a><strong>三、疑点</strong></h3><ol>
 <li>二次优化的对偶问题，我不熟悉</li>
 </ol>
 <p>&emsp;</p>
-<p>###<strong>四、Future</strong></p>
-<ul>
+<h3 id="四、Future"><a href="#四、Future" class="headerlink" title="四、Future"></a><strong>四、Future</strong></h3><ul>
 <li><strong>精彩点与启发</strong><br>  暂无</li>
 <li><strong>设想与工作</strong><br>  暂无</li>
 </ul>
 <p>&emsp;</p>
-<p>###<strong>五、例子</strong></p>
-<ul>
+<h3 id="五、例子"><a href="#五、例子" class="headerlink" title="五、例子"></a><strong>五、例子</strong></h3><ul>
 <li>本实验实验scikit-learn库实现对鸢尾花进行分类</li>
 <li>完整数据放在代码之后</li>
 </ul>
@@ -425,7 +418,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#是为方便后期画图更直观，故只取了前两列特征值向量训练。</span></span><br><span class="line">x=x[:,:<span class="number">4</span>]</span><br><span class="line"><span class="comment">#随机取0.6的数据作为训练样本</span></span><br><span class="line">x_train, x_test, y_train, y_test = train_test_split(x, y, random_state=<span class="number">1</span>, test_size=<span class="number">0.4</span>,train_size=<span class="number">0.6</span>)</span><br><span class="line"><span class="comment"># print('x_train:',x_train)</span></span><br><span class="line"><span class="comment"># print('y_train:',y_train)</span></span><br><span class="line"><span class="comment"># print('x_test:',x_test)</span></span><br><span class="line"><span class="comment"># print('y_test:',y_test)</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">kernel='linear':线性核，C越大分类效果越好，但有可能会过拟合（defaul C=1）。</span></span><br><span class="line"><span class="string">kernel='rbf'（default）:高斯核，gamma值越小，分类界面越连续；gamma值越大，分类界面越“散”，分类效果越好，但有可能会过拟合。</span></span><br><span class="line"><span class="string">decision_function_shape='ovr':one v rest，即一个类别与其他类别进行划分</span></span><br><span class="line"><span class="string">decision_function_shape='ovo':one v one，即将类别两两之间进行划分，用二分类的方法模拟多分类的结果。</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">clf = svm.SVC(C=<span class="number">0.8</span>, kernel=<span class="string">'rbf'</span>, gamma=<span class="number">20</span>, decision_function_shape=<span class="string">'ovr'</span>)</span><br><span class="line"><span class="comment">#numpy.ravel()将原始的多维数组变为一维</span></span><br><span class="line">clf.fit(x_train, y_train.ravel())</span><br></pre></td></tr></table></figure>
 <pre><code>SVC(C=0.8, cache_size=200, class_weight=None, coef0=0.0,
-  decision_function_shape=&apos;ovr&apos;, degree=3, gamma=20, kernel=&apos;rbf&apos;,
+  decision_function_shape=&#39;ovr&#39;, degree=3, gamma=20, kernel=&#39;rbf&#39;,
   max_iter=-1, probability=False, random_state=None, shrinking=True,
   tol=0.001, verbose=False)
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">y_pred = clf.predict(x_train)</span><br><span class="line">print(<span class="string">'训练集准确度'</span>,accuracy_score(y_train,y_pred))</span><br><span class="line"></span><br><span class="line">y_pred = clf.predict(x_test)</span><br><span class="line">print(<span class="string">'测试集准确度'</span>,accuracy_score(y_test,y_pred))</span><br></pre></td></tr></table></figure>
@@ -518,8 +511,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -574,6 +576,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、认识"><span class="nav-number">1.</span> <span class="nav-text">一、认识</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1简述"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.1简述</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2关键点"><span class="nav-number">1.0.2.</span> <span class="nav-text">1.2关键点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-3作用及应用"><span class="nav-number">1.0.3.</span> <span class="nav-text">1.3作用及应用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、算法原理"><span class="nav-number">2.</span> <span class="nav-text">二、算法原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、疑点"><span class="nav-number">3.</span> <span class="nav-text">三、疑点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、Future"><span class="nav-number">4.</span> <span class="nav-text">四、Future</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、例子"><span class="nav-number">5.</span> <span class="nav-text">五、例子</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -904,6 +922,8 @@
   
 
   
+  
+
 
   
 

@@ -1,0 +1,1859 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="摘要&amp;emsp;&amp;emsp;本文对2018年数模模拟B题——火电厂检测进行了初步研究">
+<meta name="keywords" content="AI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2018数模模拟第一轮B题">
+<meta property="og:url" content="http://yoursite.com/2018/08/06/2018数模模拟第一轮B题/index.html">
+<meta property="og:site_name" content="GZY的博客">
+<meta property="og:description" content="摘要&amp;emsp;&amp;emsp;本文对2018年数模模拟B题——火电厂检测进行了初步研究">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/08/06/2018数模模拟第一轮B题/output_9_0.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/06/2018数模模拟第一轮B题/output_42_1.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/06/2018数模模拟第一轮B题/output_50_0.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/06/2018数模模拟第一轮B题/output_51_0.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/06/2018数模模拟第一轮B题/output_55_1.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/06/2018数模模拟第一轮B题/output_56_0.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/06/2018数模模拟第一轮B题/output_64_0.png">
+<meta property="og:updated_time" content="2018-08-06T01:02:58.751Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2018数模模拟第一轮B题">
+<meta name="twitter:description" content="摘要&amp;emsp;&amp;emsp;本文对2018年数模模拟B题——火电厂检测进行了初步研究">
+<meta name="twitter:image" content="http://yoursite.com/2018/08/06/2018数模模拟第一轮B题/output_9_0.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/06/2018数模模拟第一轮B题/"/>
+
+
+
+
+
+  <title>2018数模模拟第一轮B题 | GZY的博客</title>
+  
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '',
+      xfbml      : true,
+      version    : 'v2.10'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_Hans/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">GZY的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/06/2018数模模拟第一轮B题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="高张阳">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/myself.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GZY的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">2018数模模拟第一轮B题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-06T08:55:27+08:00">
+                2018-08-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/科学计算/" itemprop="url" rel="index">
+                    <span itemprop="name">科学计算</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/08/06/2018数模模拟第一轮B题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/08/06/2018数模模拟第一轮B题/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/08/06/2018数模模拟第一轮B题/" class="leancloud_visitors" data-flag-title="2018数模模拟第一轮B题">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p></p><p style="font-size:20px;" align="center"><b>摘要</b></p><br>&emsp;&emsp;本文对2018年数模模拟B题——火电厂检测进行了初步研究<br><a id="more"></a><p></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
+<h4 id="读取数据"><a href="#读取数据" class="headerlink" title="读取数据"></a>读取数据</h4><ul>
+<li>分别取4000/4961、3000/3940、5000/6435</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fan=pd.read_excel(<span class="string">r'./一次风机.xls'</span>,nrows=<span class="number">4000</span>)</span><br><span class="line">airpump=pd.read_excel(<span class="string">r'./气泵前置泵.xls'</span>,nrows=<span class="number">3000</span>)</span><br><span class="line">turbine=pd.read_excel(<span class="string">r'./汽轮机本体.xlsx'</span>,nrows=<span class="number">5500</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="数据归一化"><a href="#数据归一化" class="headerlink" title="数据归一化"></a>数据归一化</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fan_norm = (fan - fan.min()) / (fan.max() - fan.min())</span><br><span class="line">airpump_norm = (airpump - airpump.min()) / (airpump.max() - airpump.min())</span><br><span class="line">turbine_norm = (turbine - turbine.min()) / (turbine.max() - turbine.min())</span><br></pre></td></tr></table></figure>
+<h4 id="异常检测算法Isolation-Forest"><a href="#异常检测算法Isolation-Forest" class="headerlink" title="异常检测算法Isolation Forest"></a>异常检测算法Isolation Forest</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> IsolationForest</span><br><span class="line">rng = np.random.RandomState(<span class="number">42</span>)</span><br><span class="line">outliers_fraction = <span class="number">0.1</span>  <span class="comment">#异常样本比例</span></span><br><span class="line">fan_train=fan_norm.values</span><br><span class="line">airpump_train=airpump_norm.values</span><br><span class="line">turbine_train=turbine_norm.values</span><br><span class="line"></span><br><span class="line"><span class="comment"># fit the model</span></span><br><span class="line">clf_fan = IsolationForest(max_samples=len(fan_train), random_state=rng, contamination=outliers_fraction)</span><br><span class="line">clf_airpump = IsolationForest(max_samples=len(airpump_train), random_state=rng, contamination=outliers_fraction)</span><br><span class="line">clf_turbine = IsolationForest(max_samples=len(turbine_train), random_state=rng, contamination=outliers_fraction)</span><br><span class="line"></span><br><span class="line">clf_fan.fit(fan_train)</span><br><span class="line">clf_airpump.fit(airpump_train)</span><br><span class="line">clf_turbine.fit(turbine_train)</span><br><span class="line"></span><br><span class="line">scores_fan = clf_fan.decision_function(fan_train)</span><br><span class="line">scores_airpump = clf_airpump.decision_function(airpump_train)</span><br><span class="line">scores_turbine = clf_turbine.decision_function(turbine_train)</span><br><span class="line"></span><br><span class="line">fan_norm[<span class="string">'检测分'</span>]=scores_fan</span><br><span class="line">airpump_norm[<span class="string">'检测分'</span>]=scores_airpump</span><br><span class="line">turbine_norm[<span class="string">'检测分'</span>]=scores_turbine</span><br></pre></td></tr></table></figure>
+<h4 id="绘制图片"><a href="#绘制图片" class="headerlink" title="绘制图片"></a>绘制图片</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> pylab <span class="keyword">import</span> mpl</span><br><span class="line"></span><br><span class="line"><span class="comment">#支持中文</span></span><br><span class="line">mpl.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'FangSong'</span>] <span class="comment"># 指定默认字体</span></span><br><span class="line">mpl.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="keyword">False</span> <span class="comment"># 解决保存图像是负号'-'显示为方块的问题</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">plt.plot(fan_norm.index,fan_norm[<span class="string">'电机电流'</span>],label=<span class="string">'电机电流'</span>)</span><br><span class="line">plt.plot(fan_norm.index,fan_norm[<span class="string">'振动1'</span>],label=<span class="string">'振动1'</span>)</span><br><span class="line">plt.plot(fan_norm.index,fan_norm[<span class="string">'振动2'</span>],label=<span class="string">'振动2'</span>)</span><br><span class="line">plt.plot(fan_norm.index,fan_norm[<span class="string">'轴温1'</span>],label=<span class="string">'轴温1'</span>)</span><br><span class="line">plt.plot(fan_norm.index,fan_norm[<span class="string">'轴温2'</span>],label=<span class="string">'轴温2'</span>)</span><br><span class="line">plt.plot(fan_norm.index,fan_norm[<span class="string">'检测分'</span>],color=<span class="string">'red'</span>,label=<span class="string">'检测分'</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/08/06/2018数模模拟第一轮B题/output_9_0.png" width="350" hegiht="300"></p>
+<h4 id="主成分分析"><a href="#主成分分析" class="headerlink" title="主成分分析"></a>主成分分析</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.decomposition <span class="keyword">import</span> PCA</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pca_fan=PCA(n_components=<span class="number">2</span>)</span><br><span class="line">fan_p=fan_norm.iloc[:,<span class="number">0</span>:<span class="number">5</span>].values</span><br><span class="line">newfan=pca_fan.fit_transform(fan_p)</span><br><span class="line">pca_fan.explained_variance_ratio_</span><br></pre></td></tr></table></figure>
+<pre><code>array([0.88467373, 0.09938617])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pca_airpump=PCA(n_components=<span class="number">4</span>)</span><br><span class="line">airpump_p=airpump_norm.iloc[:,<span class="number">0</span>:<span class="number">7</span>].values</span><br><span class="line">newairpump=pca_airpump.fit_transform(airpump_p)</span><br><span class="line">pca_airpump.explained_variance_ratio_</span><br></pre></td></tr></table></figure>
+<pre><code>array([0.4698136 , 0.39555319, 0.09388161, 0.03913781])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pca_turbine=PCA(n_components=<span class="number">7</span>)</span><br><span class="line">turbine_p=turbine_norm.iloc[:,<span class="number">0</span>:<span class="number">24</span>].values</span><br><span class="line">newturbine=pca_turbine.fit_transform(turbine_p)</span><br><span class="line">pca_turbine.explained_variance_ratio_</span><br></pre></td></tr></table></figure>
+<pre><code>array([0.37161378, 0.19945887, 0.14344712, 0.10274285, 0.05397677,
+       0.04750227, 0.03086355])
+</code></pre><h4 id="adaboost模型（尝试失败）"><a href="#adaboost模型（尝试失败）" class="headerlink" title="adaboost模型（尝试失败）"></a>adaboost模型（尝试失败）</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> AdaBoostClassifier </span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fan_pos=fan_norm[(fan_norm[<span class="string">'检测分'</span>]&gt;<span class="number">0</span>)]</span><br><span class="line">fan_neg=fan_norm[(fan_norm[<span class="string">'检测分'</span>]&lt;<span class="number">0</span>)]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Pfan_pos=pca_fan.fit_transform(fan_pos.iloc[<span class="number">0</span>:<span class="number">500</span>,<span class="number">0</span>:<span class="number">5</span>].values)</span><br><span class="line">Pfan_neg=pca_fan.fit_transform(fan_neg.iloc[:,<span class="number">0</span>:<span class="number">5</span>].values)</span><br><span class="line">Pfan=np.vstack((Pfan_pos,Pfan_neg))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Y_pos=np.ones((Pfan_pos.shape[<span class="number">0</span>],<span class="number">1</span>))</span><br><span class="line">Y_neg=-np.ones((Pfan_neg.shape[<span class="number">0</span>],<span class="number">1</span>))</span><br><span class="line">Y=np.vstack((Y_pos,Y_neg))</span><br><span class="line">Y=np.ravel(Y)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clf=AdaBoostClassifier(n_estimators=<span class="number">1000</span>)  <span class="comment">#弱分类器个数设为100</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clf.fit(Pfan[<span class="number">0</span>:<span class="number">1000</span>],Y[<span class="number">0</span>:<span class="number">4000</span>])</span><br></pre></td></tr></table></figure>
+<pre><code>AdaBoostClassifier(algorithm=&#39;SAMME.R&#39;, base_estimator=None,
+          learning_rate=1.0, n_estimators=1000, random_state=None)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a=fan_neg.iloc[<span class="number">318</span>:<span class="number">320</span>,:][<span class="number">0</span>:<span class="number">5</span>].values</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmp=pca_fan.fit_transform(a)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clf.predict(tmp)</span><br></pre></td></tr></table></figure>
+<pre><code>array([1., 1.])
+</code></pre><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ol>
+<li>分析数据之间的关联性，降维</li>
+<li>聚类、取实例最多的类为正常类，其它为异常类，可能有多个异常类，代表多种异常</li>
+<li>使用LSTM神经网络对指标进行预测</li>
+<li>究竟用不用PCA？还是直接通过协方差矩阵舍弃一部分特征？这个需要根据实践结果确定</li>
+<li><p>每一个实例，根据其所属类别、与各类中心的距离，进行分类</p>
+</li>
+<li><p>分析数据之间的关联性，降维</p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fan=pd.read_excel(<span class="string">r'./一次风机.xls'</span>,nrows=<span class="number">4000</span>)</span><br><span class="line">airpump=pd.read_excel(<span class="string">r'./气泵前置泵.xls'</span>,nrows=<span class="number">3000</span>)</span><br><span class="line">turbine=pd.read_excel(<span class="string">r'./汽轮机本体.xlsx'</span>,nrows=<span class="number">5500</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fan=(fan-fan.min())/(fan.max()-fan.min())</span><br><span class="line">airpump=(airpump-airpump.min())/(airpump.max()-airpump.min())</span><br><span class="line">turbine=(turbine-turbine.min())/(turbine.max()-turbine.min())</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fan.corr()</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>电机电流</th>
+      <th>振动1</th>
+      <th>振动2</th>
+      <th>轴温1</th>
+      <th>轴温2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>电机电流</th>
+      <td>1.000000</td>
+      <td>0.888137</td>
+      <td>0.888137</td>
+      <td>0.840657</td>
+      <td>0.831191</td>
+    </tr>
+    <tr>
+      <th>振动1</th>
+      <td>0.888137</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.728824</td>
+      <td>0.711603</td>
+    </tr>
+    <tr>
+      <th>振动2</th>
+      <td>0.888137</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.728824</td>
+      <td>0.711603</td>
+    </tr>
+    <tr>
+      <th>轴温1</th>
+      <td>0.840657</td>
+      <td>0.728824</td>
+      <td>0.728824</td>
+      <td>1.000000</td>
+      <td>0.985225</td>
+    </tr>
+    <tr>
+      <th>轴温2</th>
+      <td>0.831191</td>
+      <td>0.711603</td>
+      <td>0.711603</td>
+      <td>0.985225</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fan.drop([<span class="string">'振动2'</span>,<span class="string">'轴温2'</span>],axis=<span class="number">1</span>,inplace=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>振动1-振动2</li>
+<li>轴温1-轴温2</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">airpump.corr()</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>电流</th>
+      <th>A绕组温度2</th>
+      <th>B绕组温度2</th>
+      <th>C绕组温度2</th>
+      <th>电机温度</th>
+      <th>自由端温度</th>
+      <th>传动端温度</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>电流</th>
+      <td>1.000000</td>
+      <td>0.103054</td>
+      <td>0.140730</td>
+      <td>0.124812</td>
+      <td>-0.251819</td>
+      <td>-0.465287</td>
+      <td>0.133159</td>
+    </tr>
+    <tr>
+      <th>A绕组温度2</th>
+      <td>0.103054</td>
+      <td>1.000000</td>
+      <td>0.998937</td>
+      <td>0.999523</td>
+      <td>0.918052</td>
+      <td>0.325456</td>
+      <td>-0.091107</td>
+    </tr>
+    <tr>
+      <th>B绕组温度2</th>
+      <td>0.140730</td>
+      <td>0.998937</td>
+      <td>1.000000</td>
+      <td>0.999635</td>
+      <td>0.905512</td>
+      <td>0.293053</td>
+      <td>-0.072588</td>
+    </tr>
+    <tr>
+      <th>C绕组温度2</th>
+      <td>0.124812</td>
+      <td>0.999523</td>
+      <td>0.999635</td>
+      <td>1.000000</td>
+      <td>0.911400</td>
+      <td>0.306867</td>
+      <td>-0.080785</td>
+    </tr>
+    <tr>
+      <th>电机温度</th>
+      <td>-0.251819</td>
+      <td>0.918052</td>
+      <td>0.905512</td>
+      <td>0.911400</td>
+      <td>1.000000</td>
+      <td>0.377083</td>
+      <td>-0.035629</td>
+    </tr>
+    <tr>
+      <th>自由端温度</th>
+      <td>-0.465287</td>
+      <td>0.325456</td>
+      <td>0.293053</td>
+      <td>0.306867</td>
+      <td>0.377083</td>
+      <td>1.000000</td>
+      <td>-0.381586</td>
+    </tr>
+    <tr>
+      <th>传动端温度</th>
+      <td>0.133159</td>
+      <td>-0.091107</td>
+      <td>-0.072588</td>
+      <td>-0.080785</td>
+      <td>-0.035629</td>
+      <td>-0.381586</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">airpump.drop([<span class="string">'B绕组温度2'</span>,<span class="string">'C绕组温度2'</span>],axis=<span class="number">1</span>,inplace=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>A绕组温度2-B绕组温度2-C绕组温度2</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">turbine.corr()</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>10</th>
+      <th>...</th>
+      <th>15</th>
+      <th>16</th>
+      <th>17</th>
+      <th>18</th>
+      <th>19</th>
+      <th>20</th>
+      <th>21</th>
+      <th>22</th>
+      <th>23</th>
+      <th>24</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>1.000000</td>
+      <td>-0.404309</td>
+      <td>0.423706</td>
+      <td>0.333009</td>
+      <td>-0.116812</td>
+      <td>-0.156008</td>
+      <td>0.364946</td>
+      <td>-0.503234</td>
+      <td>0.420564</td>
+      <td>0.282241</td>
+      <td>...</td>
+      <td>0.171213</td>
+      <td>0.413424</td>
+      <td>0.638927</td>
+      <td>-0.740834</td>
+      <td>-0.446758</td>
+      <td>-0.630113</td>
+      <td>-0.585687</td>
+      <td>0.800134</td>
+      <td>0.839261</td>
+      <td>0.843261</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-0.404309</td>
+      <td>1.000000</td>
+      <td>-0.330041</td>
+      <td>-0.306834</td>
+      <td>0.054228</td>
+      <td>0.077801</td>
+      <td>-0.313989</td>
+      <td>-0.129813</td>
+      <td>0.080548</td>
+      <td>-0.004368</td>
+      <td>...</td>
+      <td>-0.097552</td>
+      <td>-0.184734</td>
+      <td>-0.456532</td>
+      <td>0.175333</td>
+      <td>-0.107023</td>
+      <td>0.509645</td>
+      <td>0.086825</td>
+      <td>-0.454852</td>
+      <td>-0.492145</td>
+      <td>-0.658591</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.423706</td>
+      <td>-0.330041</td>
+      <td>1.000000</td>
+      <td>0.208355</td>
+      <td>-0.338444</td>
+      <td>-0.380993</td>
+      <td>0.236020</td>
+      <td>-0.245068</td>
+      <td>0.229587</td>
+      <td>0.094316</td>
+      <td>...</td>
+      <td>-0.044697</td>
+      <td>0.191325</td>
+      <td>0.410848</td>
+      <td>-0.385817</td>
+      <td>-0.288125</td>
+      <td>-0.447982</td>
+      <td>-0.334766</td>
+      <td>0.156423</td>
+      <td>0.319510</td>
+      <td>0.432811</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.333009</td>
+      <td>-0.306834</td>
+      <td>0.208355</td>
+      <td>1.000000</td>
+      <td>0.127589</td>
+      <td>0.101773</td>
+      <td>0.979132</td>
+      <td>0.072463</td>
+      <td>0.027663</td>
+      <td>0.431404</td>
+      <td>...</td>
+      <td>0.306133</td>
+      <td>0.329834</td>
+      <td>0.483968</td>
+      <td>-0.091981</td>
+      <td>0.052326</td>
+      <td>-0.139703</td>
+      <td>-0.008125</td>
+      <td>0.340947</td>
+      <td>0.362065</td>
+      <td>0.335902</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>-0.116812</td>
+      <td>0.054228</td>
+      <td>-0.338444</td>
+      <td>0.127589</td>
+      <td>1.000000</td>
+      <td>0.961206</td>
+      <td>0.109848</td>
+      <td>0.407626</td>
+      <td>0.030174</td>
+      <td>0.032668</td>
+      <td>...</td>
+      <td>0.772818</td>
+      <td>0.524337</td>
+      <td>0.397873</td>
+      <td>0.298387</td>
+      <td>0.281873</td>
+      <td>0.276446</td>
+      <td>0.323849</td>
+      <td>0.239682</td>
+      <td>0.172826</td>
+      <td>-0.086474</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>-0.156008</td>
+      <td>0.077801</td>
+      <td>-0.380993</td>
+      <td>0.101773</td>
+      <td>0.961206</td>
+      <td>1.000000</td>
+      <td>0.082701</td>
+      <td>0.416210</td>
+      <td>-0.009001</td>
+      <td>0.018436</td>
+      <td>...</td>
+      <td>0.743274</td>
+      <td>0.491633</td>
+      <td>0.345021</td>
+      <td>0.326432</td>
+      <td>0.299763</td>
+      <td>0.306091</td>
+      <td>0.345639</td>
+      <td>0.200896</td>
+      <td>0.128374</td>
+      <td>-0.129601</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.364946</td>
+      <td>-0.313989</td>
+      <td>0.236020</td>
+      <td>0.979132</td>
+      <td>0.109848</td>
+      <td>0.082701</td>
+      <td>1.000000</td>
+      <td>0.041990</td>
+      <td>0.048898</td>
+      <td>0.416986</td>
+      <td>...</td>
+      <td>0.286163</td>
+      <td>0.323361</td>
+      <td>0.490668</td>
+      <td>-0.132384</td>
+      <td>0.013186</td>
+      <td>-0.177873</td>
+      <td>-0.047060</td>
+      <td>0.358224</td>
+      <td>0.383338</td>
+      <td>0.369582</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>-0.503234</td>
+      <td>-0.129813</td>
+      <td>-0.245068</td>
+      <td>0.072463</td>
+      <td>0.407626</td>
+      <td>0.416210</td>
+      <td>0.041990</td>
+      <td>1.000000</td>
+      <td>-0.239396</td>
+      <td>-0.007701</td>
+      <td>...</td>
+      <td>0.412113</td>
+      <td>0.258983</td>
+      <td>0.085432</td>
+      <td>0.799152</td>
+      <td>0.757636</td>
+      <td>0.577542</td>
+      <td>0.809187</td>
+      <td>-0.029178</td>
+      <td>-0.069345</td>
+      <td>-0.234224</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0.420564</td>
+      <td>0.080548</td>
+      <td>0.229587</td>
+      <td>0.027663</td>
+      <td>0.030174</td>
+      <td>-0.009001</td>
+      <td>0.048898</td>
+      <td>-0.239396</td>
+      <td>1.000000</td>
+      <td>0.465378</td>
+      <td>...</td>
+      <td>0.123470</td>
+      <td>0.186385</td>
+      <td>0.332913</td>
+      <td>-0.394737</td>
+      <td>-0.392296</td>
+      <td>-0.291035</td>
+      <td>-0.346604</td>
+      <td>0.315604</td>
+      <td>0.341298</td>
+      <td>0.352922</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>0.282241</td>
+      <td>-0.004368</td>
+      <td>0.094316</td>
+      <td>0.431404</td>
+      <td>0.032668</td>
+      <td>0.018436</td>
+      <td>0.416986</td>
+      <td>-0.007701</td>
+      <td>0.465378</td>
+      <td>1.000000</td>
+      <td>...</td>
+      <td>0.160949</td>
+      <td>0.169927</td>
+      <td>0.260436</td>
+      <td>-0.115752</td>
+      <td>-0.121565</td>
+      <td>-0.107853</td>
+      <td>-0.052659</td>
+      <td>0.209764</td>
+      <td>0.217122</td>
+      <td>0.188050</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>-0.715042</td>
+      <td>0.272845</td>
+      <td>-0.437593</td>
+      <td>-0.167532</td>
+      <td>0.260223</td>
+      <td>0.292878</td>
+      <td>-0.210710</td>
+      <td>0.700863</td>
+      <td>-0.407288</td>
+      <td>-0.174756</td>
+      <td>...</td>
+      <td>0.211494</td>
+      <td>0.060329</td>
+      <td>-0.269979</td>
+      <td>0.974728</td>
+      <td>0.834759</td>
+      <td>0.886728</td>
+      <td>0.955763</td>
+      <td>-0.381223</td>
+      <td>-0.439582</td>
+      <td>-0.693440</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>0.463890</td>
+      <td>0.005222</td>
+      <td>0.077633</td>
+      <td>0.228647</td>
+      <td>0.300928</td>
+      <td>0.280172</td>
+      <td>0.224671</td>
+      <td>0.129068</td>
+      <td>0.204178</td>
+      <td>0.200479</td>
+      <td>...</td>
+      <td>0.632348</td>
+      <td>0.753088</td>
+      <td>0.624781</td>
+      <td>0.058882</td>
+      <td>0.132802</td>
+      <td>0.118154</td>
+      <td>0.214017</td>
+      <td>0.722522</td>
+      <td>0.706638</td>
+      <td>0.194405</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>0.852205</td>
+      <td>-0.468559</td>
+      <td>0.356867</td>
+      <td>0.328826</td>
+      <td>0.137066</td>
+      <td>0.095596</td>
+      <td>0.353039</td>
+      <td>-0.099408</td>
+      <td>0.353883</td>
+      <td>0.217287</td>
+      <td>...</td>
+      <td>0.483517</td>
+      <td>0.690171</td>
+      <td>0.812753</td>
+      <td>-0.437980</td>
+      <td>-0.150291</td>
+      <td>-0.412221</td>
+      <td>-0.265729</td>
+      <td>0.963759</td>
+      <td>0.985265</td>
+      <td>0.808505</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>0.013769</td>
+      <td>0.025286</td>
+      <td>-0.073293</td>
+      <td>0.261163</td>
+      <td>0.724068</td>
+      <td>0.703073</td>
+      <td>0.234199</td>
+      <td>0.455774</td>
+      <td>0.043079</td>
+      <td>0.130576</td>
+      <td>...</td>
+      <td>0.963765</td>
+      <td>0.874404</td>
+      <td>0.653003</td>
+      <td>0.381633</td>
+      <td>0.425633</td>
+      <td>0.383519</td>
+      <td>0.464704</td>
+      <td>0.362931</td>
+      <td>0.336136</td>
+      <td>-0.026214</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>0.171213</td>
+      <td>-0.097552</td>
+      <td>-0.044697</td>
+      <td>0.306133</td>
+      <td>0.772818</td>
+      <td>0.743274</td>
+      <td>0.286163</td>
+      <td>0.412113</td>
+      <td>0.123470</td>
+      <td>0.160949</td>
+      <td>...</td>
+      <td>1.000000</td>
+      <td>0.900957</td>
+      <td>0.760892</td>
+      <td>0.251477</td>
+      <td>0.339878</td>
+      <td>0.235320</td>
+      <td>0.356111</td>
+      <td>0.526647</td>
+      <td>0.498030</td>
+      <td>0.140454</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>0.413424</td>
+      <td>-0.184734</td>
+      <td>0.191325</td>
+      <td>0.329834</td>
+      <td>0.524337</td>
+      <td>0.491633</td>
+      <td>0.323361</td>
+      <td>0.258983</td>
+      <td>0.186385</td>
+      <td>0.169927</td>
+      <td>...</td>
+      <td>0.900957</td>
+      <td>1.000000</td>
+      <td>0.862044</td>
+      <td>0.078950</td>
+      <td>0.250444</td>
+      <td>0.105485</td>
+      <td>0.222783</td>
+      <td>0.671841</td>
+      <td>0.677362</td>
+      <td>0.338841</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>0.638927</td>
+      <td>-0.456532</td>
+      <td>0.410848</td>
+      <td>0.483968</td>
+      <td>0.397873</td>
+      <td>0.345021</td>
+      <td>0.490668</td>
+      <td>0.085432</td>
+      <td>0.332913</td>
+      <td>0.260436</td>
+      <td>...</td>
+      <td>0.760892</td>
+      <td>0.862044</td>
+      <td>1.000000</td>
+      <td>-0.213873</td>
+      <td>0.011811</td>
+      <td>-0.264778</td>
+      <td>-0.061077</td>
+      <td>0.776819</td>
+      <td>0.814824</td>
+      <td>0.616993</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>-0.740834</td>
+      <td>0.175333</td>
+      <td>-0.385817</td>
+      <td>-0.091981</td>
+      <td>0.298387</td>
+      <td>0.326432</td>
+      <td>-0.132384</td>
+      <td>0.799152</td>
+      <td>-0.394737</td>
+      <td>-0.115752</td>
+      <td>...</td>
+      <td>0.251477</td>
+      <td>0.078950</td>
+      <td>-0.213873</td>
+      <td>1.000000</td>
+      <td>0.852883</td>
+      <td>0.843688</td>
+      <td>0.978239</td>
+      <td>-0.369236</td>
+      <td>-0.419269</td>
+      <td>-0.651978</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>-0.446758</td>
+      <td>-0.107023</td>
+      <td>-0.288125</td>
+      <td>0.052326</td>
+      <td>0.281873</td>
+      <td>0.299763</td>
+      <td>0.013186</td>
+      <td>0.757636</td>
+      <td>-0.392296</td>
+      <td>-0.121565</td>
+      <td>...</td>
+      <td>0.339878</td>
+      <td>0.250444</td>
+      <td>0.011811</td>
+      <td>0.852883</td>
+      <td>1.000000</td>
+      <td>0.800859</td>
+      <td>0.891497</td>
+      <td>-0.082685</td>
+      <td>-0.127800</td>
+      <td>-0.284779</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>-0.630113</td>
+      <td>0.509645</td>
+      <td>-0.447982</td>
+      <td>-0.139703</td>
+      <td>0.276446</td>
+      <td>0.306091</td>
+      <td>-0.177873</td>
+      <td>0.577542</td>
+      <td>-0.291035</td>
+      <td>-0.107853</td>
+      <td>...</td>
+      <td>0.235320</td>
+      <td>0.105485</td>
+      <td>-0.264778</td>
+      <td>0.843688</td>
+      <td>0.800859</td>
+      <td>1.000000</td>
+      <td>0.823798</td>
+      <td>-0.345524</td>
+      <td>-0.407005</td>
+      <td>-0.643130</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>-0.585687</td>
+      <td>0.086825</td>
+      <td>-0.334766</td>
+      <td>-0.008125</td>
+      <td>0.323849</td>
+      <td>0.345639</td>
+      <td>-0.047060</td>
+      <td>0.809187</td>
+      <td>-0.346604</td>
+      <td>-0.052659</td>
+      <td>...</td>
+      <td>0.356111</td>
+      <td>0.222783</td>
+      <td>-0.061077</td>
+      <td>0.978239</td>
+      <td>0.891497</td>
+      <td>0.823798</td>
+      <td>1.000000</td>
+      <td>-0.198883</td>
+      <td>-0.247161</td>
+      <td>-0.526601</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>0.800134</td>
+      <td>-0.454852</td>
+      <td>0.156423</td>
+      <td>0.340947</td>
+      <td>0.239682</td>
+      <td>0.200896</td>
+      <td>0.358224</td>
+      <td>-0.029178</td>
+      <td>0.315604</td>
+      <td>0.209764</td>
+      <td>...</td>
+      <td>0.526647</td>
+      <td>0.671841</td>
+      <td>0.776819</td>
+      <td>-0.369236</td>
+      <td>-0.082685</td>
+      <td>-0.345524</td>
+      <td>-0.198883</td>
+      <td>1.000000</td>
+      <td>0.985772</td>
+      <td>0.770380</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>0.839261</td>
+      <td>-0.492145</td>
+      <td>0.319510</td>
+      <td>0.362065</td>
+      <td>0.172826</td>
+      <td>0.128374</td>
+      <td>0.383338</td>
+      <td>-0.069345</td>
+      <td>0.341298</td>
+      <td>0.217122</td>
+      <td>...</td>
+      <td>0.498030</td>
+      <td>0.677362</td>
+      <td>0.814824</td>
+      <td>-0.419269</td>
+      <td>-0.127800</td>
+      <td>-0.407005</td>
+      <td>-0.247161</td>
+      <td>0.985772</td>
+      <td>1.000000</td>
+      <td>0.812399</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>0.843261</td>
+      <td>-0.658591</td>
+      <td>0.432811</td>
+      <td>0.335902</td>
+      <td>-0.086474</td>
+      <td>-0.129601</td>
+      <td>0.369582</td>
+      <td>-0.234224</td>
+      <td>0.352922</td>
+      <td>0.188050</td>
+      <td>...</td>
+      <td>0.140454</td>
+      <td>0.338841</td>
+      <td>0.616993</td>
+      <td>-0.651978</td>
+      <td>-0.284779</td>
+      <td>-0.643130</td>
+      <td>-0.526601</td>
+      <td>0.770380</td>
+      <td>0.812399</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+<p>24 rows × 24 columns</p>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">turbine.drop([<span class="number">7</span>,<span class="number">6</span>,<span class="number">18</span>,<span class="number">21</span>,<span class="number">22</span>,<span class="number">23</span>,<span class="number">15</span>],axis=<span class="number">1</span>,inplace=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>4-7</li>
+<li>5-6</li>
+<li>11-18-21</li>
+<li>13-22-23</li>
+<li>14-15</li>
+</ul>
+<ol>
+<li>聚类、取实例最多的类为正常类，其它为异常类，可能有多个异常类，代表多种异常</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> KMeans</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kmeans=KMeans(n_clusters=<span class="number">6</span>,random_state=<span class="number">0</span>).fit(fan.values)</span><br><span class="line">kmeans.labels_</span><br></pre></td></tr></table></figure>
+<pre><code>array([4, 4, 4, ..., 2, 2, 2])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.plot(kmeans.labels_)</span><br></pre></td></tr></table></figure>
+<pre><code>[&lt;matplotlib.lines.Line2D at 0x1f818fc8c88&gt;]
+</code></pre><p><img src="/2018/08/06/2018数模模拟第一轮B题/output_42_1.png" width="350" hegiht="300"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">centers=kmeans.cluster_centers_</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">clus_fan=pd.DataFrame(&#123;<span class="string">'电机电流'</span>:fan.values[:,<span class="number">0</span>],</span><br><span class="line">                       <span class="string">'振动1'</span>:fan.values[:,<span class="number">1</span>],</span><br><span class="line">                       <span class="string">'轴温1'</span>:fan.values[:,<span class="number">2</span>],</span><br><span class="line">                       <span class="string">'label'</span>:kmeans.labels_&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">clus0=clus_fan[clus_fan[<span class="string">'label'</span>]==<span class="number">0</span>]</span><br><span class="line">clus1=clus_fan[clus_fan[<span class="string">'label'</span>]==<span class="number">1</span>]</span><br><span class="line">clus2=clus_fan[clus_fan[<span class="string">'label'</span>]==<span class="number">2</span>]</span><br><span class="line">clus3=clus_fan[clus_fan[<span class="string">'label'</span>]==<span class="number">3</span>]</span><br><span class="line">clus4=clus_fan[clus_fan[<span class="string">'label'</span>]==<span class="number">4</span>]</span><br><span class="line">clus5=clus_fan[clus_fan[<span class="string">'label'</span>]==<span class="number">5</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scores=np.array([clus0.shape[<span class="number">0</span>],clus1.shape[<span class="number">0</span>],clus2.shape[<span class="number">0</span>],clus3.shape[<span class="number">0</span>],clus4.shape[<span class="number">0</span>],clus5.shape[<span class="number">0</span>]])</span><br><span class="line">scores=scores/np.sum(scores)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sum(clus0.std()),sum(clus1.std()),sum(clus2.std()),sum(clus3.std()),sum(clus4.std()),sum(clus5.std()),</span><br></pre></td></tr></table></figure>
+<pre><code>(0.13137368480810804,
+ 0.1870394634789771,
+ 0.16080801956316787,
+ 0.22788479323952032,
+ 0.1445194905924624,
+ 0.3070648375067585)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kmeans.transform([[<span class="number">0.5</span>,<span class="number">0.5</span>,<span class="number">0.5</span>]])</span><br></pre></td></tr></table></figure>
+<pre><code>array([[0.36015261, 0.80141846, 0.39976344, 0.59835125, 0.3386292 ,
+        0.20441052]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clus0.mean()</span><br></pre></td></tr></table></figure>
+<pre><code>电机电流     0.547557
+振动1      0.467458
+轴温1      0.849644
+label    0.000000
+dtype: float64
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> mpl_toolkits.mplot3d <span class="keyword">import</span> Axes3D</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> cm</span><br><span class="line"><span class="keyword">from</span> matplotlib.ticker <span class="keyword">import</span> LinearLocator, FormatStrFormatter</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">fig = plt.figure()</span><br><span class="line">ax = fig.gca(projection=<span class="string">'3d'</span>)</span><br><span class="line">color=&#123;<span class="number">0</span>:<span class="string">'g'</span>,<span class="number">1</span>:<span class="string">'r'</span>,<span class="number">2</span>:<span class="string">'b'</span>,<span class="number">3</span>:<span class="string">'y'</span>,<span class="number">4</span>:<span class="string">'black'</span>,<span class="number">5</span>:<span class="string">'c'</span>,<span class="number">6</span>:<span class="string">'m'</span>,<span class="number">7</span>: <span class="string">'w'</span> &#125;</span><br><span class="line">colors=[color[kmeans.labels_[i]] <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,len(kmeans.labels_))]</span><br><span class="line"><span class="comment"># Plot the surface.</span></span><br><span class="line">ax.scatter3D(fan.values[:,<span class="number">0</span>],fan.values[:,<span class="number">1</span>],fan.values[:,<span class="number">2</span>],c=colors)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/08/06/2018数模模拟第一轮B题/output_50_0.png" width="350" hegiht="300"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">fig2 = plt.figure()</span><br><span class="line">ax2 = fig2.gca(projection=<span class="string">'3d'</span>)</span><br><span class="line">ax2.view_init(elev=<span class="number">90</span>, azim=<span class="number">0</span>)</span><br><span class="line">color=&#123;<span class="number">0</span>:<span class="string">'g'</span>,<span class="number">1</span>:<span class="string">'r'</span>,<span class="number">2</span>:<span class="string">'b'</span>,<span class="number">3</span>:<span class="string">'y'</span>,<span class="number">4</span>:<span class="string">'black'</span>,<span class="number">5</span>:<span class="string">'c'</span>,<span class="number">6</span>:<span class="string">'m'</span>&#125;</span><br><span class="line">colors=[color[kmeans.labels_[i]] <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,len(kmeans.labels_))]</span><br><span class="line"><span class="comment"># Plot the surface.</span></span><br><span class="line">ax2.scatter3D(fan.values[:,<span class="number">0</span>],fan.values[:,<span class="number">1</span>],fan.values[:,<span class="number">2</span>],c=colors)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/08/06/2018数模模拟第一轮B题/output_51_0.png" width="350" hegiht="300"></p>
+<ol>
+<li>使用LSTM神经网络对指标进行预测</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> read_csv</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">from</span> keras.models <span class="keyword">import</span> Sequential</span><br><span class="line"><span class="keyword">from</span> keras.callbacks <span class="keyword">import</span> TensorBoard</span><br><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> Dense</span><br><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> LSTM</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> MinMaxScaler</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_squared_error</span><br><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure>
+<pre><code>Using TensorFlow backend.
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fan1=fan[<span class="string">'电机电流'</span>].values.reshape(<span class="number">-1</span>,<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.plot(fan1)</span><br></pre></td></tr></table></figure>
+<pre><code>[&lt;matplotlib.lines.Line2D at 0x1e61a3a11d0&gt;]
+</code></pre><p><img src="/2018/08/06/2018数模模拟第一轮B题/output_55_1.png" width="350" hegiht="300"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#方便调试，固定随机种子</span></span><br><span class="line">numpy.random.seed(<span class="number">7</span>)</span><br><span class="line"><span class="comment">#scaler是一个归一化方法对象，利用fit_transform方法将数据归一化</span></span><br><span class="line">scaler = MinMaxScaler(feature_range=(<span class="number">0</span>, <span class="number">1</span>))</span><br><span class="line">fan1 = scaler.fit_transform(fan1)</span><br><span class="line">plt.plot(fan1)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/08/06/2018数模模拟第一轮B题/output_56_0.png" width="350" hegiht="300"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 取0.67为训练，余下测试</span></span><br><span class="line">train_size = int(len(fan1) * <span class="number">0.67</span>)</span><br><span class="line">test_size = len(fan1) - train_size</span><br><span class="line">train, test = fan1[<span class="number">0</span>:train_size,:], fan1[train_size:len(fan1),:]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#生成LSTM的输入输出</span></span><br><span class="line"><span class="comment">#输入为含有look_back个元素的序列</span></span><br><span class="line"><span class="comment">#输出为序列之后紧随的真实值</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_dataset</span><span class="params">(dataset, look_back=<span class="number">1</span>)</span>:</span></span><br><span class="line">    dataX, dataY = [], []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(dataset)-look_back<span class="number">-1</span>):</span><br><span class="line">        a = dataset[i:(i+look_back), <span class="number">0</span>]</span><br><span class="line">        dataX.append(a)</span><br><span class="line">        dataY.append(dataset[i + look_back, <span class="number">0</span>])</span><br><span class="line">    <span class="keyword">return</span> numpy.array(dataX), numpy.array(dataY)</span><br><span class="line"></span><br><span class="line">look_back = <span class="number">1</span></span><br><span class="line">trainX, trainY = create_dataset(train, look_back)</span><br><span class="line">testX, testY = create_dataset(test, look_back)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># reshape input to be [samples, time steps, features]</span></span><br><span class="line">trainX = numpy.reshape(trainX, (trainX.shape[<span class="number">0</span>], <span class="number">1</span>, trainX.shape[<span class="number">1</span>]))</span><br><span class="line">testX = numpy.reshape(testX, (testX.shape[<span class="number">0</span>], <span class="number">1</span>, testX.shape[<span class="number">1</span>]))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">model=Sequential()</span><br><span class="line">model.add(LSTM(<span class="number">4</span>,input_shape=(<span class="number">1</span>,look_back)))</span><br><span class="line">model.add(Dense(<span class="number">1</span>))</span><br><span class="line">model.compile(loss=<span class="string">'mean_squared_error'</span>,optimizer=<span class="string">'adam'</span>)</span><br><span class="line"><span class="comment">#利用TensorBoard可视化</span></span><br><span class="line">model.fit(trainX, trainY, epochs=<span class="number">4</span>,</span><br><span class="line">          batch_size=<span class="number">1</span>, verbose=<span class="number">2</span>,</span><br><span class="line">          callbacks=[TensorBoard(log_dir=<span class="string">'./Graph/log'</span>)]</span><br><span class="line">          )</span><br></pre></td></tr></table></figure>
+<pre><code>Epoch 1/4
+ - 27s - loss: 0.0080
+Epoch 2/4
+ - 28s - loss: 8.5782e-04
+Epoch 3/4
+ - 26s - loss: 8.4602e-04
+Epoch 4/4
+ - 26s - loss: 8.4341e-04
+
+
+
+
+
+&lt;keras.callbacks.History at 0x1e61bf6d5c0&gt;
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#预测</span></span><br><span class="line">trainPredict = model.predict(trainX)</span><br><span class="line">testPredict = model.predict(testX)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 从0-1的标准值，还原到最初的数据</span></span><br><span class="line">trainPredict = scaler.inverse_transform(trainPredict)</span><br><span class="line">trainY = scaler.inverse_transform([trainY])</span><br><span class="line">testPredict = scaler.inverse_transform(testPredict)</span><br><span class="line">testY = scaler.inverse_transform([testY])</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#计算 mean squared error</span></span><br><span class="line">trainScore = math.sqrt(mean_squared_error(trainY[<span class="number">0</span>], trainPredict[:,<span class="number">0</span>]))</span><br><span class="line">print(<span class="string">'Train Score: %.2f RMSE'</span> % (trainScore))</span><br><span class="line">testScore = math.sqrt(mean_squared_error(testY[<span class="number">0</span>], testPredict[:,<span class="number">0</span>]))</span><br><span class="line">print(<span class="string">'Test Score: %.2f RMSE'</span> % (testScore))</span><br></pre></td></tr></table></figure>
+<pre><code>Train Score: 1.69 RMSE
+Test Score: 1.61 RMSE
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#画出结果：</span></span><br><span class="line"><span class="comment"># 蓝色为原数据，绿色为训练集的预测值，橙色为测试集的预测值</span></span><br><span class="line"><span class="comment"># shift train predictions for plotting</span></span><br><span class="line">trainPredictPlot = numpy.empty_like(fan1)</span><br><span class="line">trainPredictPlot[:, :] = numpy.nan</span><br><span class="line">trainPredictPlot[look_back:len(trainPredict)+look_back, :] = trainPredict</span><br><span class="line"></span><br><span class="line"><span class="comment"># shift test predictions for plotting</span></span><br><span class="line">testPredictPlot = numpy.empty_like(fan1)</span><br><span class="line">testPredictPlot[:, :] = numpy.nan</span><br><span class="line">testPredictPlot[len(trainPredict)+(look_back*<span class="number">2</span>)+<span class="number">1</span>:len(fan1)<span class="number">-1</span>, :] = testPredict</span><br><span class="line"></span><br><span class="line"><span class="comment"># plot baseline and predictions</span></span><br><span class="line">plt.plot(scaler.inverse_transform(fan1))</span><br><span class="line">plt.plot(trainPredictPlot)</span><br><span class="line">plt.plot(testPredictPlot)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/08/06/2018数模模拟第一轮B题/output_64_0.png" width="350" hegiht="300"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">len(train)</span><br></pre></td></tr></table></figure>
+<pre><code>3323
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">len(test)</span><br></pre></td></tr></table></figure>
+<pre><code>1638
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/05/sympy与scipy/" rel="next" title="sympy与scipy">
+                <i class="fa fa-chevron-left"></i> sympy与scipy
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/myself.jpg"
+                alt="高张阳" />
+            
+              <p class="site-author-name" itemprop="name">高张阳</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#读取数据"><span class="nav-number">1.</span> <span class="nav-text">读取数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据归一化"><span class="nav-number">2.</span> <span class="nav-text">数据归一化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异常检测算法Isolation-Forest"><span class="nav-number">3.</span> <span class="nav-text">异常检测算法Isolation Forest</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绘制图片"><span class="nav-number">4.</span> <span class="nav-text">绘制图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主成分分析"><span class="nav-number">5.</span> <span class="nav-text">主成分分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#adaboost模型（尝试失败）"><span class="nav-number">6.</span> <span class="nav-text">adaboost模型（尝试失败）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路"><span class="nav-number"></span> <span class="nav-text">思路</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">高张阳</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'TToWKirlKoD13FESVwMOAGeD-gzGzoHsz',
+        appKey: 'm46PDioK2e7aviLKetatykyC',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("TToWKirlKoD13FESVwMOAGeD-gzGzoHsz", "m46PDioK2e7aviLKetatykyC");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>

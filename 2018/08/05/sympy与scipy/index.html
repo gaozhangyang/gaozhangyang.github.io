@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="摘要&amp;emsp;&amp;emsp;本文介绍了Adaboost方法，并对鸢尾花进行分类。">
+<meta name="description" content="摘要&amp;emsp;&amp;emsp;本文介绍了使用sympy与scipy进行科学计算的一般方法。">
 <meta name="keywords" content="AI">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Adaboost">
-<meta property="og:url" content="http://yoursite.com/2018/07/25/Adaboost/index.html">
+<meta property="og:title" content="sympy与scipy">
+<meta property="og:url" content="http://yoursite.com/2018/08/05/sympy与scipy/index.html">
 <meta property="og:site_name" content="GZY的博客">
-<meta property="og:description" content="摘要&amp;emsp;&amp;emsp;本文介绍了Adaboost方法，并对鸢尾花进行分类。">
+<meta property="og:description" content="摘要&amp;emsp;&amp;emsp;本文介绍了使用sympy与scipy进行科学计算的一般方法。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-25T11:16:39.326Z">
+<meta property="og:image" content="http://yoursite.com/2018/08/05/sympy与scipy/output_27_0.png">
+<meta property="og:updated_time" content="2018-08-06T00:45:31.733Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Adaboost">
-<meta name="twitter:description" content="摘要&amp;emsp;&amp;emsp;本文介绍了Adaboost方法，并对鸢尾花进行分类。">
+<meta name="twitter:title" content="sympy与scipy">
+<meta name="twitter:description" content="摘要&amp;emsp;&amp;emsp;本文介绍了使用sympy与scipy进行科学计算的一般方法。">
+<meta name="twitter:image" content="http://yoursite.com/2018/08/05/sympy与scipy/output_27_0.png">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/25/Adaboost/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/05/sympy与scipy/"/>
 
 
 
 
 
-  <title>Adaboost | GZY的博客</title>
+  <title>sympy与scipy | GZY的博客</title>
   
 <script>
   window.fbAsyncInit = function() {
@@ -271,7 +273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/25/Adaboost/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/05/sympy与scipy/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="高张阳">
@@ -288,7 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Adaboost</h1>
+          <h1 class="post-title" itemprop="name headline">sympy与scipy</h1>
         
 
         <div class="post-meta">
@@ -300,8 +302,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-25T14:19:34+08:00">
-                2018-07-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-05T08:54:21+08:00">
+                2018-08-05
               </time>
             
 
@@ -323,8 +325,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习ML/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习ML</span>
+                  <a href="/categories/科学计算/" itemprop="url" rel="index">
+                    <span itemprop="name">科学计算</span>
                   </a>
                 </span>
 
@@ -341,8 +343,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/07/25/Adaboost/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/07/25/Adaboost/" itemprop="commentCount"></span>
+                <a href="/2018/08/05/sympy与scipy/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/08/05/sympy与scipy/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -350,7 +352,7 @@
 
           
           
-             <span id="/2018/07/25/Adaboost/" class="leancloud_visitors" data-flag-title="Adaboost">
+             <span id="/2018/08/05/sympy与scipy/" class="leancloud_visitors" data-flag-title="sympy与scipy">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -381,80 +383,82 @@
       
 
       
-        <p></p><p style="font-size:20px;" align="center"><b>摘要</b></p><br>&emsp;&emsp;本文介绍了Adaboost方法，并对鸢尾花进行分类。<br><a id="more"></a><p></p>
+        <p></p><p style="font-size:20px;" align="center"><b>摘要</b></p><br>&emsp;&emsp;本文介绍了使用sympy与scipy进行科学计算的一般方法。<br><a id="more"></a><p></p>
 <p>&emsp;</p>
-<h3 id="一、认识"><a href="#一、认识" class="headerlink" title="一、认识"></a><strong>一、认识</strong></h3><h5 id="1-1简述"><a href="#1-1简述" class="headerlink" title="1.1简述"></a>1.1简述</h5><pre><code>Adaboost的思想是：将多个弱分类器组合在一起(组合方式为对分类结果加权平均)构成一个强分类器。
-</code></pre><h5 id="1-2关键点"><a href="#1-2关键点" class="headerlink" title="1.2关键点"></a>1.2关键点</h5><pre><code>1.新加入的分类器需要如何训练得到？
-    Adaboost的策略是改变数据的权重，误分类数据的权重增加以训练新的分类器。
-2.新加入的分类器占所有分类器的权重如何确定？
-    通过求Loss函数的最小值，获取最新分类器的权重。
-3.Adaboost中，每一次迭代，改变数据的权重(用来训练新的分类器)；产生一个新的弱分类器及其权值；将弱分类器加权进强分类器，生成最新的强分类器。
-</code></pre><h5 id="1-3作用及应用"><a href="#1-3作用及应用" class="headerlink" title="1.3作用及应用"></a>1.3作用及应用</h5><pre><code>分类……
-</code></pre><p>&emsp;</p>
-<h3 id="二、算法原理"><a href="#二、算法原理" class="headerlink" title="二、算法原理"></a><strong>二、算法原理</strong></h3><ol>
-<li><p>这篇博客讲得非常精彩，建议看完之后亲自推导。<br><a href="https://louisscorpio.github.io/2017/11/28/%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98%E4%B9%8BAdaBoost/" target="_blank" rel="noopener">https://louisscorpio.github.io/2017/11/28/%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98%E4%B9%8BAdaBoost/</a></p>
-</li>
-<li><p>导引：<br>强分类器(多个弱分类器的加权求和)：</p>
-<script type="math/tex; mode=display">F_M(x)=\sum_{m=1}^n{α_mG_m(x)} \qquad 
-F_k(x)=F_{k-1}(x)+α_kG_k(x)</script></li>
+<h2 id="一、微分方程"><a href="#一、微分方程" class="headerlink" title="一、微分方程"></a>一、微分方程</h2><ul>
+<li>使用dsolve函数</li>
+</ul>
+<ol>
+<li><strong>单个方程</strong></li>
 </ol>
-<p>&emsp;&emsp;其中：<br>&emsp;&emsp;&emsp;&emsp;$G_m(x)$表示第m个分类器<br>&emsp;&emsp;&emsp;&emsp;$α_m$表示第m个分类器的权重<br>&emsp;&emsp;&emsp;&emsp;M为最终迭代次数，也就是弱分类器的总个数</p>
-<p>&emsp;&emsp;设训练数据为($x_1,y_1$),($x_2,y_2$)($x_3,y_3$)……($x_n,y_n$)<br>&emsp;&emsp;并且采用指数损失函数:</p>
-<script type="math/tex; mode=display">Loss=\sum_{i=1}^N{e^{-y_iF_m(x_i)}}</script><p>&emsp;<br>&emsp;&emsp;<strong>问题1</strong>：第m个分类器的权重$α_m$<br>&emsp;&emsp;<strong>方法</strong>：通过极小化Loss获取$α_m$的值<br>&emsp;&emsp;</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-Loss&=\sum_{i=1}^N{e^{-y_iF_m(x_i)}} \\
-&=\sum_{i=1}^N{ e^{-y_i(F_{m-1}(x_i)+α_mG_m(x))} } \\
-&=\sum_{i=1}^N{ K_{m,i} e^{-y_iα_mG_m(x)} } \\
-&=\sum_{G_m(x_i)=y_i}{ K_{m,i} e^{-α_m} } + \sum_{G_m(x_i) \neq y_i}{ K_{m,i} e^{α_m} } \\
-&=( \sum_{G_m(x_i)=y_i}{ K_{m,i} } )e^{-α_m} + ( \sum_{G_m(x_i) \neq y_i}{ K_{m,i} })e^{α_m}\\
-&=(\sum_{i=1}^N{K_{m,i}}) \frac{( \sum_{G_m(x_i)=y_i}{ K_{m,i} } )e^{-α_m} + ( \sum_{G_m(x_i) \neq y_i}{ K_{m,i} })e^{α_m}}{\sum_{i=1}^N{K_{m,i}}}\\
-&=(\sum_{i=1}^N{K_{m,i}})((1-e_m)e^{-α_m}+e_me^{α_m})
-\end{aligned}</script><p>&emsp;&emsp;其中</p>
-<script type="math/tex; mode=display">K_{m,i}=e^{-y_iF_{m-1}(x_i)}</script><p>&emsp;&emsp;Loss对$α_m$求倒数，并取倒数等于0，得到：</p>
-<script type="math/tex; mode=display">\frac{\partial Loss}{\partial α_m} = (\sum_{i=1}^N{K_{m,i}})((e_m-1)e^{-α_m}+e_me^{α_m})=0</script><p>&emsp;&emsp;于是得到第m个分类器的权重:</p>
-<script type="math/tex; mode=display">α_m=\frac{1}{2} ln(\frac{1-e_m}{e_m})</script><p>&emsp;<br>&emsp;&emsp;<strong>问题2</strong>：训练数据的权值怎么更新?<br>&emsp;&emsp;<strong>方法</strong>：暂不知晓，只能感官上领会</p>
-<script type="math/tex; mode=display">ω_{m+1,i}=\frac{ω_{m,i}}{z_m} e^{-α_my_iG_m(x_i)},i=1,2,…</script><script type="math/tex; mode=display">z_m=\sum_{i=1}^{N}{ω_{m,i} e^{-α_my_iG_m(x_i)} }</script><p>&emsp;&emsp;抛开归一因子$z_m$。误分类时，$y_iG_m(x_i)<0$，与最新分类器的权重$α_m$加权后，得到$-α_my_ig_m(x_i)>0$，指数部分一点大于1，使得原来的权重$ω_{m,i}$变大。同理，正确分类后，原有权重会变小。</0$，与最新分类器的权重$α_m$加权后，得到$-α_my_ig_m(x_i)></p>
-<p>&emsp;</p>
-<h3 id="三、疑点"><a href="#三、疑点" class="headerlink" title="三、疑点"></a><strong>三、疑点</strong></h3><ol>
-<li>对于分类器权值的更新已经明白了，但对于数据项权值的更新还不了解原理，只能是感官上领会。</li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> *</span><br><span class="line">init_printing(use_unicode=<span class="keyword">True</span>)</span><br><span class="line">t = symbols(<span class="string">'t'</span>)</span><br><span class="line">x, y = symbols(<span class="string">'x, y'</span>, function=<span class="keyword">True</span>)</span><br><span class="line">eq=Eq(Derivative(x(t),t),t)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eq</span><br></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">\frac{d}{d t} x{\left (t \right )} = t</script><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dsolve(eq)</span><br></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">x{\left (t \right )} = C_{1} + \frac{t^{2}}{2}</script><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dsolve(eq,ics=&#123;x(<span class="number">0</span>):<span class="number">10</span>&#125;)</span><br></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">x{\left (t \right )} = \frac{t^{2}}{2} + 10</script><ol>
+<li><strong>方程组</strong>(经常报错，不知道为什么，好像微分方程组中引入了自变量t时就报错)</li>
 </ol>
-<p>&emsp;</p>
-<h3 id="四、Future"><a href="#四、Future" class="headerlink" title="四、Future"></a><strong>四、Future</strong></h3><ol>
-<li><p>精彩点与启发</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">eq1=Eq(Derivative(x(t),t),y(t))</span><br><span class="line">eq2=Eq(Derivative(y(t),t),x(t))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eq1,eq2</span><br></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">\left ( \frac{d}{d t} x{\left (t \right )} = y{\left (t \right )}, \quad \frac{d}{d t} y{\left (t \right )} = x{\left (t \right )}\right )</script><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dsolve((eq1,eq2),(x(t),y(t)))</span><br></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">\left [ x{\left (t \right )} = C_{1} e^{t} + C_{2} e^{- t}, \quad y{\left (t \right )} = C_{1} e^{t} - C_{2} e^{- t}\right ]</script><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dsolve(eq=(eq1,eq2),func=(x(t),y(t)),ics=&#123;x(<span class="number">0</span>):<span class="number">1</span>,y(<span class="number">0</span>):<span class="number">0</span>&#125;)</span><br></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">\left [ x{\left (t \right )} = \frac{e^{t}}{2} + \frac{e^{- t}}{2}, \quad y{\left (t \right )} = \frac{e^{t}}{2} - \frac{e^{- t}}{2}\right ]</script><ul>
+<li>我的疑问(为什么报错?)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">eq3=Eq(Derivative(x(t),t),<span class="number">0.2</span>*t)</span><br><span class="line">eq4=Eq(Derivative(y(t),t),<span class="number">0.4</span>*t)</span><br></pre></td></tr></table></figure>
+<pre><code>Eq(Derivative(x(t), t), 0.2*t)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eq3,eq4</span><br></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">\left ( \frac{d}{d t} x{\left (t \right )} = 0.2 t, \quad \frac{d}{d t} y{\left (t \right )} = 0.4 t\right )</script><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dsolve((eq3,eq4),(x(t),y(t)))</span><br></pre></td></tr></table></figure>
+<pre><code>---------------------------------------------------------------------------
+
+NotImplementedError                       Traceback (most recent call last)
+
+&lt;ipython-input-20-1d6b22b4bb6c&gt; in &lt;module&gt;()
+----&gt; 1 dsolve((eq3,eq4),(x(t),y(t)))
+
+
+c:\d_work\software\code_tools\python3.6\install\lib\site-packages\sympy\solvers\ode.py in dsolve(eq, func, hint, simplify, ics, xi, eta, x0, n, **kwargs)
+    607             &quot;number of functions being equal to number of equations&quot;)
+    608         if match[&#39;type_of_equation&#39;] is None:
+--&gt; 609             raise NotImplementedError
+    610         else:
+    611             if match[&#39;is_linear&#39;] == True:
+
+
+NotImplementedError: 
+</code></pre><h2 id="二、一般方程"><a href="#二、一般方程" class="headerlink" title="二、一般方程"></a>二、一般方程</h2><ul>
+<li>solve函数求解方程</li>
+<li>nonlinsolve函数求解非线性方程组</li>
+<li>nonlinsolve求解多个方程时可能效率低，可以用solve函数一个个求</li>
+</ul>
+<ol>
+<li>以数学建模中的最优捕鱼策略为例:求C1,C2,C3关于k的表达式</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">death=<span class="number">0.8</span></span><br><span class="line">C1,C2,C3,C4,k=symbols(<span class="string">'C1 C2 C3 C4 k'</span>)</span><br><span class="line">init_printing(use_unicode=<span class="keyword">True</span>)</span><br><span class="line">tmp1=<span class="number">1</span>/(-death)*(exp(-death)-exp(-death*<span class="number">2</span>/<span class="number">3</span>))</span><br><span class="line">n4=<span class="number">1.109</span>*<span class="number">10</span>**<span class="number">5</span></span><br><span class="line">n=<span class="number">3</span>*n4/<span class="number">2</span>*C3*exp(<span class="number">-0.28</span>*k)*tmp1+<span class="number">3</span>*n4*C4*exp(<span class="number">-2</span>/<span class="number">3</span>*k)*tmp1</span><br></pre></td></tr></table></figure>
 <ul>
-<li>将多个分类器加权组合，在合作的策略下得到了更强的系统</li>
+<li>求解非线性方程组，nonlinsolve能力有限，无法将C1,C2,C3,C4一起求出来，只能求出C2,C3,C4，含有变量C1与k</li>
 </ul>
-</li>
-<li><p>设想与工作</p>
-<ul>
-<li>该方法具备普适性，未来在深度学习中或许也要学会组合各种网络。只需要规范化的结构，辅以组合就能完成复杂的任务。</li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">re=nonlinsolve([C1-n*<span class="number">1.22</span>*<span class="number">10</span>**<span class="number">11</span>/(<span class="number">1.22</span>*<span class="number">10</span>**<span class="number">11</span>+n),</span><br><span class="line">          C2-C1*exp(-death),</span><br><span class="line">          C3-C2*exp(-death),</span><br><span class="line">          C4-C3*exp(<span class="number">-0.28</span>*k)*exp(-death),</span><br><span class="line">          ],</span><br><span class="line">         [C2,C3,C4])</span><br><span class="line">C2_,C3_,C4_=next(iter(re))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C2_,C3_,C4_</span><br></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">\left ( 0.449328964117222 C_{1}, \quad 0.201896517994655 C_{1}, \quad 0.0907179532894125 C_{1} e^{- 0.28 k}\right )</script><ul>
+<li>使用solve函数单独对C1进行求解</li>
 </ul>
-</li>
-</ol>
-<p>&emsp;</p>
-<h3 id="五、例子"><a href="#五、例子" class="headerlink" title="五、例子"></a><strong>五、例子</strong></h3><ul>
-<li>这篇博客不错：<br><a href="https://louisscorpio.github.io/2017/11/28/%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98%E4%B9%8BAdaBoost/" target="_blank" rel="noopener">https://louisscorpio.github.io/2017/11/28/%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98%E4%B9%8BAdaBoost/</a></li>
-<li>本例使用sklearn库，用Adaboost方法对鸢尾花进行分类</li>
-<li>数据见SVM一文</li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">n=n.subs(&#123;C2:C2_,C3:C3_,C4:C4_&#125;)</span><br><span class="line">re2=solve([C1-n*<span class="number">1.22</span>*<span class="number">10</span>**<span class="number">11</span>/(<span class="number">1.22</span>*<span class="number">10</span>**<span class="number">11</span>+n)],[C1])</span><br><span class="line">C1_=re2[<span class="number">1</span>][<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C1_</span><br></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">\frac{100000000000.0 \left(703309675829753.0 e^{0.666666666666667 k} - 122000000000.0 e^{0.946666666666667 k} + 632034816188403.0\right)}{576483340844060.0 e^{0.666666666666667 k} + 518061324744593.0}</script><h2 id="三、方程求根"><a href="#三、方程求根" class="headerlink" title="三、方程求根"></a>三、方程求根</h2><ul>
+<li>使用上一节中sympy的函数求根</li>
+<li>scipy牛顿法求数值解</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">在scikit-learn库中，有AdaBoostRegression（回归）和AdaBoostClassifier（分类）两个。</span></span><br><span class="line"><span class="string">在对和AdaBoostClassifier进行调参时，主要是对两部分进行调参：1) AdaBoost框架调参；2)弱分类器调参</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> cross_val_score</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> accuracy_score</span><br><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> AdaBoostClassifier </span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">iris_type</span><span class="params">(s)</span>:</span></span><br><span class="line">    it = &#123;<span class="string">b'Iris-setosa'</span>: <span class="number">0</span>, <span class="string">b'Iris-versicolor'</span>: <span class="number">1</span>, <span class="string">b'Iris-virginica'</span>: <span class="number">2</span>&#125;</span><br><span class="line">    <span class="keyword">return</span> it[s]</span><br><span class="line">fname=<span class="string">u'C:\D_Work\WorkFiles\ML\SVM\iris.txt'</span></span><br><span class="line"><span class="comment">#加载数据</span></span><br><span class="line">data=np.loadtxt(fname,dtype=float,delimiter=<span class="string">','</span>,converters=&#123;<span class="number">4</span>:iris_type&#125;)</span><br><span class="line">x, y = np.split(data, (<span class="number">4</span>,), axis=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#四个特征</span></span><br><span class="line">x=x[:,:<span class="number">4</span>]</span><br><span class="line"><span class="comment">#随机取0.6的数据作为训练样本</span></span><br><span class="line">x_train, x_test, y_train, y_test = train_test_split(x, y, random_state=<span class="number">1</span>, test_size=<span class="number">0.4</span>,train_size=<span class="number">0.6</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">AdaBoostClassifier参数解释</span></span><br><span class="line"><span class="string">base_estimator:弱分类器，默认是CART分类树：DecisionTressClassifier</span></span><br><span class="line"><span class="string">algorithm：在scikit-learn实现了两种AdaBoost分类算法，即SAMME和SAMME.R，</span></span><br><span class="line"><span class="string">           SAMME就是原理篇介绍到的AdaBoost算法，指Discrete AdaBoost</span></span><br><span class="line"><span class="string">           SAMME.R指Real AdaBoost，返回值不再是离散的类型，而是一个表示概率的实数值，算法流程见后文</span></span><br><span class="line"><span class="string">                            两者的主要区别是弱分类器权重的度量，SAMME使用了分类效果作为弱分类器权重，SAMME.R使用了预测概率作为弱分类器权重。</span></span><br><span class="line"><span class="string">           SAMME.R的迭代一般比SAMME快，默认算法是SAMME.R。因此，base_estimator必须使用支持概率预测的分类器。</span></span><br><span class="line"><span class="string">loss：这个只在回归中用到，不解释了</span></span><br><span class="line"><span class="string">n_estimator:最大迭代次数，默认50。在实际调参过程中，常常将n_estimator和学习率learning_rate一起考虑</span></span><br><span class="line"><span class="string">learning_rate:每个弱分类器的权重缩减系数v。f_k(x)=f_&#123;k-1&#125;*a_k*G_k(x)。较小的v意味着更多的迭代次数，默认是1，也就是v不发挥作用。</span></span><br><span class="line"><span class="string">另外的弱分类器的调参，弱分类器不同则参数不同，这里不详细叙述</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="comment">#构建模型</span></span><br><span class="line">y_train=np.ravel(y_train)<span class="comment">#变为行向量</span></span><br><span class="line">y_test=np.ravel(y_test)</span><br><span class="line">clf=AdaBoostClassifier(n_estimators=<span class="number">100</span>)  <span class="comment">#弱分类器个数设为100</span></span><br><span class="line">scores=cross_val_score(clf,x_train,y_train)</span><br><span class="line">print(<span class="string">"训练集准确度："</span>,scores.mean())</span><br><span class="line">clf.fit(x_train,y_train)</span><br></pre></td></tr></table></figure>
-<pre><code>训练集准确度： 0.9551476949697194
-
-
-
-
-
-AdaBoostClassifier(algorithm=&#39;SAMME.R&#39;, base_estimator=None,
-          learning_rate=1.0, n_estimators=100, random_state=None)
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">y_test_Pre=clf.predict(x_test)</span><br><span class="line">print(y_test_Pre)</span><br><span class="line">scores_test=accuracy_score(y_test,y_test_Pre)</span><br><span class="line">print(<span class="string">"测试集准确度："</span>,scores_test)</span><br></pre></td></tr></table></figure>
-<pre><code>[0. 1. 1. 0. 2. 1. 2. 0. 0. 2. 1. 0. 2. 1. 1. 0. 1. 1. 0. 0. 1. 1. 2. 0.
- 2. 1. 0. 0. 1. 2. 1. 2. 1. 2. 2. 0. 1. 0. 1. 2. 2. 0. 2. 2. 1. 2. 0. 0.
- 0. 1. 0. 0. 2. 2. 2. 2. 1. 1. 2. 1.]
-测试集准确度： 0.9666666666666667
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy <span class="keyword">import</span> optimize</span><br><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> sympy.plotting <span class="keyword">import</span> plot</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">t=symbols(<span class="string">'t'</span>)</span><br><span class="line">f=t**<span class="number">2</span>+<span class="number">4</span>*t</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plot(f)</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/08/05/sympy与scipy/output_27_0.png" width="350" hegiht="300"></p>
+<pre><code>&lt;sympy.plotting.plot.Plot at 0x1de8be9d1d0&gt;
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#将sympy公式转换为scipy可求解的公式</span></span><br><span class="line">a=lambdify(t,f, <span class="string">"numpy"</span>) </span><br><span class="line">x0=optimize.newton(a,x0=<span class="number">0.1</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x0</span><br></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">4.361102883558504e-21</script><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#将sympy公式转换为scipy可求解的公式</span></span><br><span class="line">a=lambdify(t,f, <span class="string">"numpy"</span>) </span><br><span class="line">x0=optimize.newton(a,x0=<span class="number">-5</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x0</span><br></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">-4.000000000000009</script>
       
     </div>
     
@@ -478,8 +482,8 @@ AdaBoostClassifier(algorithm=&#39;SAMME.R&#39;, base_estimator=None,
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/24/LSTM-航班预测/" rel="next" title="LSTM_航班预测">
-                <i class="fa fa-chevron-left"></i> LSTM_航班预测
+              <a href="/2018/07/26/阿里全球调度算法大赛/" rel="next" title="阿里全球调度算法大赛">
+                <i class="fa fa-chevron-left"></i> 阿里全球调度算法大赛
               </a>
             
           </div>
@@ -487,10 +491,6 @@ AdaBoostClassifier(algorithm=&#39;SAMME.R&#39;, base_estimator=None,
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/26/阿里全球调度算法大赛/" rel="prev" title="阿里全球调度算法大赛">
-                阿里全球调度算法大赛 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -620,7 +620,7 @@ AdaBoostClassifier(algorithm=&#39;SAMME.R&#39;, base_estimator=None,
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、认识"><span class="nav-number">1.</span> <span class="nav-text">一、认识</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1简述"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.1简述</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2关键点"><span class="nav-number">1.0.2.</span> <span class="nav-text">1.2关键点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-3作用及应用"><span class="nav-number">1.0.3.</span> <span class="nav-text">1.3作用及应用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、算法原理"><span class="nav-number">2.</span> <span class="nav-text">二、算法原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、疑点"><span class="nav-number">3.</span> <span class="nav-text">三、疑点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、Future"><span class="nav-number">4.</span> <span class="nav-text">四、Future</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、例子"><span class="nav-number">5.</span> <span class="nav-text">五、例子</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、微分方程"><span class="nav-number">1.</span> <span class="nav-text">一、微分方程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、一般方程"><span class="nav-number">2.</span> <span class="nav-text">二、一般方程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、方程求根"><span class="nav-number">3.</span> <span class="nav-text">三、方程求根</span></a></li></ol></div>
             
 
           </div>

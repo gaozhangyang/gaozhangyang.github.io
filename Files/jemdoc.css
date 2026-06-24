@@ -44,6 +44,7 @@
     left: 0;
     top: 0;
     width: 100%;
+	box-sizing: border-box;
 	padding: 12px 0px;
 	text-align: center;
 	position: fixed;
@@ -496,4 +497,97 @@ p.pub_author{
 
 p.pub_link{
 	font-size: 14px	
+}
+
+.paper-list {
+	margin: 8px 0 18px;
+}
+
+.paper-item {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	margin: 0 0 16px;
+	padding: 12px 0 14px;
+	border-bottom: 1px solid #e9edf3;
+}
+
+.paper-item:first-child {
+	padding-top: 4px;
+}
+
+.paper-cover {
+	flex: 0 0 220px;
+	width: 220px;
+	aspect-ratio: 16 / 9;
+	object-fit: cover;
+	border: 1.2px solid #464646;
+	padding: 5px;
+	border-radius: 8px;
+	box-shadow: 1.2px 1.2px #bbbbbb;
+	background: #ffffff;
+	box-sizing: border-box;
+}
+
+.paper-meta {
+	flex: 1 1 auto;
+	min-width: 0;
+	line-height: 1.35;
+}
+
+.paper-links {
+	display: block;
+	margin-top: 4px;
+	font-size: 13px;
+}
+
+.paper-links a {
+	color: #2a7ce0;
+}
+
+@media (max-width: 720px) {
+	.menu {
+		overflow-x: auto;
+		text-align: left;
+		white-space: nowrap;
+	}
+
+	.menu a {
+		font-size: 92%;
+		padding: 0.25ex 1.0ex;
+	}
+
+	.container {
+		width: auto;
+		margin: 52px 8px 16px;
+		padding: 12px;
+		box-shadow: 0 0 4px #122b6d;
+	}
+
+	#layout-content {
+		padding-left: 0.2em;
+		padding-right: 0.2em;
+	}
+
+	.container > div:first-of-type {
+		align-items: flex-start !important;
+		flex-direction: column;
+	}
+
+	.container > div:first-of-type img {
+		width: min(220px, 100%);
+		height: auto !important;
+	}
+
+	.paper-item {
+		align-items: flex-start;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	.paper-cover {
+		width: 100%;
+		max-width: 340px;
+		flex-basis: auto;
+	}
 }
